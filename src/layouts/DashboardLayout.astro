@@ -1,0 +1,74 @@
+---
+import Header from "@/components/DashboardComponents/Header.astro";
+import Navbar from "@/components/DashboardComponents/Navbar.astro";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>VitalAssist</title>
+  </head>
+  <body>
+    <div class="Container">
+      <header>
+        <Header />
+      </header>
+      <section>
+        <slot />
+      </section>
+      <nav>
+        <Navbar />
+      </nav>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --Primary-Color: #3c97fe;
+    --Bg-Color: #19191d;
+    --White-Color: #ededf0;
+    --Border-Color: #2c2c30;
+    --Hover-Color: #414146;
+    --Border-Radius: 0.5rem;
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+</style>
+
+<style>
+  .Container {
+    background-color: var(--Bg-Color);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "Header Header Header"
+      "Nav Main Main"
+      "Nav Main Main";
+  }
+
+  header {
+    grid-area: Header;
+  }
+
+  section {
+    grid-area: Main;
+    height: calc(100vh - 4rem);
+    width: calc(100vw - 12.5rem);
+  }
+
+  nav {
+    grid-area: Nav;
+  }
+</style>

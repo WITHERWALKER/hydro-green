@@ -1,50 +1,8 @@
 ---
-import Header from "@/components/DashboardComponents/Header.astro";
-import Layout from "@/layouts/Layout.astro";
+import DashboardLayout from "@/layouts/DashboardLayout.astro";
 import Main from "@/components/DashboardComponents/Main.astro";
-import Navbar from "@/components/DashboardComponents/Navbar.astro";
 ---
 
-<Layout>
-  <div class="Container">
-    <section class="Header">
-      <Header />
-    </section>
-
-    <section class="Main">
-      <Main />
-    </section>
-
-    <section class="Navbar">
-      <Navbar />
-    </section>
-  </div>
-</Layout>
-
-<style>
-  .Container {
-    height: 100vh;
-    background-color: var(--Bg-Color);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas:
-      "Header Header Header"
-      "Nav Main Main"
-      "Nav Main Main";
-  }
-
-  .Header {
-    grid-area: Header;
-  }
-
-  .Main {
-    grid-area: Main;
-    height: calc(100vh - 4rem);
-    width: calc(100vw - 12.5rem);
-  }
-
-  .Navbar {
-    grid-area: Nav;
-  }
-</style>
+<DashboardLayout>
+  <Main />
+</DashboardLayout>
