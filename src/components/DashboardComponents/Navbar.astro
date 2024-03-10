@@ -1,0 +1,92 @@
+---
+import Dashboard from "@/components/Icons/Dashboard.astro";
+import Settings from "@/components/Icons/Settings.astro";
+---
+
+<section>
+  <ul>
+    <li>
+      <a class="Nav-Section" href="">
+        <span><Dashboard /></span>
+        <span>Overview</span>
+      </a>
+      <li>
+        <a class="Nav-Section" href="">
+          <!-- <span>Logo</span> -->
+          <span>Auth</span>
+        </a>
+      </li>
+      <li>
+        <a class="Nav-Section" href="">
+          <!-- <span>Logo</span> -->
+          <span>Database</span>
+        </a>
+      </li>
+      <li>
+        <a class="Nav-Section" href="">
+          <!-- <span>Logo</span> -->
+          <span>Function</span>
+        </a>
+      </li>
+      <li>
+        <a class="Nav-Section" href="">
+          <!-- <span>Logo</span> -->
+          <span>Storage</span>
+        </a>
+      </li>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  <a class="Nav-Section" href="#">
+    <span><Settings /></span>
+    <span>Setting</span>
+  </a>
+</footer>
+
+<style lang="scss">
+  section {
+    padding: 1.5rem 1rem;
+    width: 12.5rem;
+    height: calc(100vh - 4rem - 5rem);
+    border-right: 2px solid var(--Border-Color);
+
+    ul {
+      display: flex;
+      flex-flow: column wrap;
+      align-content: center;
+      gap: 0.5rem;
+
+      li {
+        height: 2.5rem;
+      }
+    }
+  }
+
+  .Nav-Section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 10.5rem;
+    padding: 8px 12px;
+    font-size: 1rem;
+
+    color: var(--White-Color);
+    background-color: var(--Bg-Color);
+
+    &:hover {
+      background-color: var(--Hover-Color);
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+  }
+
+  footer {
+    height: 5rem;
+    width: 12.5rem;
+    padding: 1rem 1rem;
+    border-right: 2px solid var(--Border-Color);
+    background-color: var(--Bg-Color);
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+import Card from "@/components/DashboardComponents/Card.astro";
+---
+
+<header>
+  <h2>Terra - Información</h2>
+  <section>
+    <div class="G1"></div>
+    <div class="G2"></div>
+    <div class="Info1">
+      <Card title="Database" subtitle="Database" info="Documents: 7" />
+    </div>
+    <div class="Info2">
+      <Card title="Database" subtitle="Database" info="Documents: 7" />
+    </div>
+    <div class="Info3">
+      <Card title="Database" subtitle="Database" info="Documents: 7" />
+    </div>
+    <div class="Info4">
+      <Card title="Database" subtitle="Database" info="Documents: 7" />
+    </div>
+    <div class="G3"></div>
+  </section>
+</header>
+
+<style lang="scss">
+  header {
+    h2 {
+      color: var(--White-Color);
+      font-size: 2em;
+      padding: 1.5rem 16.125rem;
+      background-color: #202024;
+    }
+  }
+
+  section {
+    height: calc(100vh - 12rem);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+    border-radius: var(--Border-Radius);
+    width: 70%;
+    margin: 0 auto;
+    grid-template-areas:
+      "G1 G1 G1 G2 G2 G2"
+      "G1 G1 G1 G2 G2 G2"
+      "Info1 Info1 Info2 Info2 G3 G3"
+      "Info3 Info3 Info4 Info4 G3 G3";
+
+    .G1 {
+      grid-area: G1;
+      background-color: antiquewhite;
+    }
+
+    .G2 {
+      grid-area: G2;
+      background-color: aliceblue;
+    }
+
+    .Info1 {
+      grid-area: Info1;
+      background-color: aqua;
+    }
+
+    .Info2 {
+      grid-area: Info2;
+      background-color: yellowgreen;
+    }
+
+    .Info3 {
+      grid-area: Info3;
+      background-color: yellow;
+    }
+
+    .Info4 {
+      grid-area: Info4;
+      background-color: aquamarine;
+    }
+
+    .G3 {
+      grid-area: G3;
+      background-color: blueviolet;
+    }
+
+    div {
+      border-radius: var(--Border-Radius);
+    }
+  }
+</style>

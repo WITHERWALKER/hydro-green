@@ -1,0 +1,58 @@
+---
+import Avatar from "@/components/DashboardComponents/Avatar.astro";
+import Button from "@/components/Button.astro";
+---
+
+<header>
+  <div class="Logo">
+    <!-- Logo -->
+    <h2>Terra</h2>
+  </div>
+  <div class="Session">
+    <div class="Info">
+      <a href="/support" target="_blank">Support</a>
+      <Button title="Upgrate" link="#" />
+    </div>
+
+    <Avatar />
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    border-bottom: 2px solid var(--Border-Color);
+
+    .Logo {
+      h2 {
+        font-size: 2rem;
+        color: var(--White-Color);
+      }
+    }
+
+    .Session {
+      display: flex;
+      gap: 1rem;
+
+      .Info {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding-right: 1rem;
+        border-right: 2px solid var(--Border-Color);
+
+        a {
+          color: var(--White-Color);
+
+          &:hover {
+            color: var(--Primary-Color);
+            transition: 0.4s ease;
+          }
+        }
+      }
+    }
+  }
+</style>
