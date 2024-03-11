@@ -1,0 +1,124 @@
+---
+import GoogleColor from "@/components/Icons/GoogleColor.astro";
+---
+
+<div class="Container">
+  <div class="Description">
+    <h1>Back to your <span>digital life.</span></h1>
+    <p>Choose one of the options to go.</p>
+  </div>
+  <form action="">
+    <input
+      required=""
+      type="text"
+      name="text"
+      autocomplete="off"
+      class="input"
+      placeholder="Email"
+    />
+
+    <input
+      required=""
+      type="text"
+      name="text"
+      autocomplete="off"
+      class="input"
+      placeholder="Password"
+    />
+  </form>
+  <div class="Divisor">
+    <p>Or continue with</p>
+  </div>
+  <a href="#"><GoogleColor /></a>
+  <div class="Btn">
+    <button class="In">Sign In</button>
+    <button class="Up">Sign Up</button>
+  </div>
+</div>
+
+<style lang="scss">
+  .Container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ececec;
+
+    .Description {
+      margin-bottom: 1.5625rem;
+      h1 {
+        font-size: 2em;
+        margin-bottom: 0.5rem;
+
+        span {
+          font-weight: 700;
+        }
+      }
+
+      p {
+        color: #8b949e;
+      }
+    }
+
+    .Divisor {
+      margin: 1.125rem 0;
+
+      p {
+        font-size: 1em;
+        color: #7700ff;
+      }
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      background-color: #b6b6b6;
+      padding: 0.75rem;
+      margin: 0 auto;
+      width: 60%;
+      border-radius: 0.5rem;
+      text-align: center;
+    }
+
+    .Btn {
+      margin-top: 4rem;
+      display: flex;
+      justify-content: center;
+
+      button {
+        padding: 8px 16px;
+      }
+
+      .In {
+        background-color: rgb(9, 143, 233);
+      }
+
+      .Up {
+        background-color: #b6b6b6;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    input {
+      width: 90%;
+      height: 1.25rem;
+      border: 1px solid #b6b6b6;
+      border-radius: 0.5rem;
+      padding: 1.5625rem 0.9375rem;
+
+      &:focus {
+        outline: none;
+        border: 2px solid #00fca8;
+      }
+    }
+  }
+</style>
