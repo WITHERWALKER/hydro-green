@@ -31,6 +31,7 @@ import Layout from "@/layouts/Layout.astro";
       </form>
       <div class="Divisor">
         <p>Or continue with</p>
+        <span></span>
       </div>
       <a href="#"><GoogleColor /></a>
       <div class="Btn">
@@ -90,10 +91,19 @@ import Layout from "@/layouts/Layout.astro";
 
       .Divisor {
         margin: 1.125rem 0;
+        display: flex;
+        align-items: center;
 
         p {
           font-size: 1em;
           color: #8b949e;
+          margin-right: 0.75rem;
+        }
+
+        span {
+          border: 1px solid #8b949e6b;
+          width: 13.75rem;
+          height: 0;
         }
       }
 
