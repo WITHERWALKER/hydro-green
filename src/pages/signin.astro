@@ -1,104 +1,145 @@
 ---
 import GoogleColor from "@/components/Icons/GoogleColor.astro";
+import Layout from "@/layouts/Layout.astro";
 ---
 
-<div class="Container">
-  <div class="Description">
-    <h1>Back to your <span>digital life.</span></h1>
-    <p>Choose one of the options to go.</p>
-  </div>
-  <form action="">
-    <input
-      required=""
-      type="text"
-      name="text"
-      autocomplete="off"
-      class="input"
-      placeholder="Email"
-    />
+<Layout>
+  <div class="Container">
+    <div class="Form">
+      <div class="Description">
+        <h1>Back to your <span>digital life.</span></h1>
+        <p>Choose one of the options to go.</p>
+      </div>
+      <form action="">
+        <input
+          required=""
+          type="text"
+          name="text"
+          autocomplete="off"
+          class="input"
+          placeholder="Email"
+        />
 
-    <input
-      required=""
-      type="text"
-      name="text"
-      autocomplete="off"
-      class="input"
-      placeholder="Password"
-    />
-  </form>
-  <div class="Divisor">
-    <p>Or continue with</p>
+        <input
+          required=""
+          type="text"
+          name="text"
+          autocomplete="off"
+          class="input"
+          placeholder="Password"
+        />
+      </form>
+      <div class="Divisor">
+        <p>Or continue with</p>
+      </div>
+      <a href="#"><GoogleColor /></a>
+      <div class="Btn">
+        <button class="In">Sign In</button>
+        <button class="Up">Sign Up</button>
+      </div>
+    </div>
+    <img src="/img/HuertoFresas.webp" alt="" />
   </div>
-  <a href="#"><GoogleColor /></a>
-  <div class="Btn">
-    <button class="In">Sign In</button>
-    <button class="Up">Sign Up</button>
-  </div>
-</div>
+</Layout>
 
 <style lang="scss">
+  body {
+    background-color: #eef2f5;
+  }
+
   .Container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #ececec;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "Form Img";
+    width: 56.25rem;
 
-    .Description {
-      margin-bottom: 1.5625rem;
-      h1 {
-        font-size: 2em;
-        margin-bottom: 0.5rem;
+    .Form {
+      grid-area: Form;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 3rem;
+      height: 37.5rem;
+      width: 28.125rem;
+      background-color: #ffffff;
+      border-top-left-radius: var(--Border);
+      border-bottom-left-radius: var(--Border);
 
-        span {
-          font-weight: 700;
+      .Description {
+        margin-bottom: 1.75rem;
+
+        h1 {
+          font-size: 2em;
+          margin-bottom: 0.5rem;
+
+          span {
+            font-weight: 700;
+          }
+        }
+
+        p {
+          color: #8b949e;
         }
       }
 
-      p {
-        color: #8b949e;
+      .Divisor {
+        margin: 1.125rem 0;
+
+        p {
+          font-size: 1em;
+          color: #8b949e;
+        }
+      }
+
+      a {
+        display: flex;
+        justify-content: center;
+        background-color: #e6e6e6;
+        padding: 0.875rem;
+        margin: 0 auto;
+        width: 90%;
+        border-radius: 0.5rem;
+        text-align: center;
+      }
+
+      .Btn {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+
+        button {
+          padding: 0.7rem;
+          width: 100%;
+        }
+
+        .In {
+          background-color: rgb(9, 143, 233);
+          color: var(--White-Color);
+          border-top-left-radius: var(--Border);
+          border-bottom-left-radius: var(--Border);
+        }
+
+        .Up {
+          background-color: #e6e6e6;
+          color: #000000;
+          border-top-right-radius: var(--Border);
+          border-bottom-right-radius: var(--Border);
+        }
       }
     }
 
-    .Divisor {
-      margin: 1.125rem 0;
-
-      p {
-        font-size: 1em;
-        color: #7700ff;
-      }
-    }
-
-    a {
-      display: flex;
-      justify-content: center;
-      background-color: #b6b6b6;
-      padding: 0.75rem;
-      margin: 0 auto;
-      width: 60%;
-      border-radius: 0.5rem;
-      text-align: center;
-    }
-
-    .Btn {
-      margin-top: 4rem;
-      display: flex;
-      justify-content: center;
-
-      button {
-        padding: 8px 16px;
-      }
-
-      .In {
-        background-color: rgb(9, 143, 233);
-      }
-
-      .Up {
-        background-color: #b6b6b6;
-      }
+    img {
+      grid-area: Img;
+      width: 450px;
+      height: 600px;
+      border-top-right-radius: var(--Border);
+      border-bottom-right-radius: var(--Border);
     }
   }
 
@@ -106,14 +147,14 @@ import GoogleColor from "@/components/Icons/GoogleColor.astro";
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
 
     input {
-      width: 90%;
-      height: 1.25rem;
+      width: 100%;
+      height: 3.25rem;
       border: 1px solid #b6b6b6;
       border-radius: 0.5rem;
-      padding: 1.5625rem 0.9375rem;
+      padding: 0.75rem;
 
       &:focus {
         outline: none;
