@@ -13,6 +13,14 @@ import Layout from "@/layouts/Layout.astro";
       <form action="">
         <input
           required=""
+          type="text"
+          autocomplete="off"
+          class="input"
+          placeholder="Name"
+        />
+
+        <input
+          required=""
           type="email"
           autocomplete="off"
           class="input"
@@ -27,14 +35,10 @@ import Layout from "@/layouts/Layout.astro";
           placeholder="Password"
         />
       </form>
-      <div class="Divisor">
-        <p>Or continue with</p>
-        <span></span>
-      </div>
-      <a href="#"><GoogleColor /></a>
-      <button>Sign In</button>
+
+      <button>Sign Up</button>
     </div>
-    <img src="/img/HuertoFresas.webp" alt="" />
+    <img src="/img/FresasFrescas.webp" alt="" />
   </div>
 </Layout>
 
@@ -52,7 +56,7 @@ import Layout from "@/layouts/Layout.astro";
     justify-items: center;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-    grid-template-areas: "Form Img";
+    grid-template-areas: "Img Form";
     width: 56.25rem;
 
     .Form {
@@ -64,8 +68,8 @@ import Layout from "@/layouts/Layout.astro";
       height: 37.5rem;
       width: 28.125rem;
       background-color: #ffffff;
-      border-top-left-radius: var(--Border);
-      border-bottom-left-radius: var(--Border);
+      border-top-right-radius: var(--Border);
+      border-bottom-right-radius: var(--Border);
 
       .Description {
         margin-bottom: 1.75rem;
@@ -82,36 +86,6 @@ import Layout from "@/layouts/Layout.astro";
         p {
           color: var(--GreyText-Color);
         }
-      }
-
-      .Divisor {
-        margin: 1.125rem 0;
-        display: flex;
-        align-items: center;
-
-        p {
-          font-size: 1em;
-          color: var(--GreyText-Color);
-          margin-right: 0.75rem;
-        }
-
-        span {
-          border: 1px solid var(--GreyText-Color);
-          opacity: 0.5;
-          width: 13.75rem;
-          height: 0;
-        }
-      }
-
-      a {
-        display: flex;
-        justify-content: center;
-        background-color: #e6e6e6;
-        padding: 0.75rem;
-        margin: 0 auto;
-        width: 50%;
-        border-radius: 0.5rem;
-        text-align: center;
       }
 
       button {
@@ -138,8 +112,9 @@ import Layout from "@/layouts/Layout.astro";
     grid-area: Img;
     width: 28.125rem;
     height: 37.5rem;
-    border-top-right-radius: var(--Border);
-    border-bottom-right-radius: var(--Border);
+    object-fit: cover;
+    border-top-left-radius: var(--Border);
+    border-bottom-left-radius: var(--Border);
   }
 
   form {
