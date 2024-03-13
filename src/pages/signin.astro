@@ -7,7 +7,7 @@ import Layout from "@/layouts/Layout.astro";
   <div class="Container">
     <div class="Form">
       <div class="Description">
-        <h1>Back to your <span>digital life.</span></h1>
+        <h1>Inicia sesión, <span>bienvenido!</span></h1>
         <p>Choose one of the options to go.</p>
       </div>
       <form action="">
@@ -75,7 +75,8 @@ import Layout from "@/layouts/Layout.astro";
           margin-bottom: 0.5rem;
 
           span {
-            font-weight: 700;
+            font-weight: 600;
+            color: var(--Secondary-Color);
           }
         }
 
@@ -112,6 +113,11 @@ import Layout from "@/layouts/Layout.astro";
         width: 50%;
         border-radius: 0.5rem;
         text-align: center;
+
+        &:hover {
+          background-color: var(--Bg-Color);
+          transition: 0.4s ease-out;
+        }
       }
 
       button {
