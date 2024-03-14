@@ -1,5 +1,4 @@
 ---
-import GoogleColor from "@/components/Icons/GoogleColor.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
 
@@ -86,7 +85,7 @@ import Layout from "@/layouts/Layout.astro";
         }
 
         p {
-          color: var(--GreyText-Color);
+          color: var(--Grey-Color);
         }
       }
 
@@ -95,7 +94,7 @@ import Layout from "@/layouts/Layout.astro";
         display: flex;
         justify-content: center;
         padding: 0.7rem;
-        width: 70%;
+        width: 60%;
         background-color: var(--Primary-Color);
         color: var(--White-Color);
         border-radius: var(--Border);
@@ -103,7 +102,7 @@ import Layout from "@/layouts/Layout.astro";
         font-weight: 500;
 
         &:hover {
-          background-color: var(--Hover-Color);
+          background-color: var(--Hover-Primary-Color);
           transition: 0.3s ease;
         }
       }
@@ -134,7 +133,7 @@ import Layout from "@/layouts/Layout.astro";
 
       &:focus {
         outline: none;
-        border: 2px solid var(--Hover-Color);
+        border: 2px solid var(--Hover-Primary-Color);
       }
     }
   }

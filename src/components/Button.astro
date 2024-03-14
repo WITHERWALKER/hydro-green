@@ -8,17 +8,16 @@ const { title, link } = Astro.props;
 
 <style>
   a {
-    background-color: var(--Bg-Color);
-    border: 2px solid #3e3e3e;
+    border: 2px solid var(--Grey-Color);
     border-radius: var(--Border);
-    color: var(--White-Color);
-    padding: 8px 15px;
-    font-size: 1em;
+    color: var(--Black-Color);
+    padding: 0.3rem 0.75rem;
+    font-size: 1.1em;
   }
 
   a:hover {
-    border: 2px solid var(--White-Color);
+    border: 2px solid var(--Primary-Color);
     cursor: pointer;
-    transition: 0.4s ease;
+    transition: 0.4s ease-out;
   }
 </style>

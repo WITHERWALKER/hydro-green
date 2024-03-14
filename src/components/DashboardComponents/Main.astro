@@ -5,8 +5,8 @@ import Card from "@/components/DashboardComponents/Card.astro";
 <header>
   <h2>Informació en tiempo real</h2>
   <section>
-    <div class="G1"></div>
-    <div class="G2"></div>
+    <div class="G1 Grafic"></div>
+    <div class="G2 Grafic"></div>
     <div class="Info1">
       <Card title="Strawberry" subtitle="Strawberry" info="Documents: 7" />
     </div>
@@ -19,17 +19,16 @@ import Card from "@/components/DashboardComponents/Card.astro";
     <div class="Info4">
       <Card title="Strawberry" subtitle="Strawberry" info="Documents: 50" />
     </div>
-    <div class="G3"></div>
+    <div class="G3 Grafic"></div>
   </section>
 </header>
 
 <style lang="scss">
   header {
     h2 {
-      color: var(--White-Color);
       font-size: 1.5em;
       padding: 1.5rem 16.125rem;
-      color: black;
+      color: var(--Black-Color);
     }
   }
 
@@ -48,39 +47,36 @@ import Card from "@/components/DashboardComponents/Card.astro";
       "Info1 Info1 Info2 Info2 G3 G3"
       "Info3 Info3 Info4 Info4 G3 G3";
 
+    .Grafic {
+      background-color: #fff;
+    }
+
     .G1 {
       grid-area: G1;
-      background-color: #ffffff;
     }
 
     .G2 {
       grid-area: G2;
-      background-color: #ffffff;
-    }
-
-    .Info1 {
-      grid-area: Info1;
-      background-color: #ffffff;
-    }
-
-    .Info2 {
-      grid-area: Info2;
-      background-color: #ffffff;
-    }
-
-    .Info3 {
-      grid-area: Info3;
-      background-color: #ffffff;
-    }
-
-    .Info4 {
-      grid-area: Info4;
-      background-color: #ffffff;
     }
 
     .G3 {
       grid-area: G3;
-      background-color: #ffffff;
+    }
+
+    .Info1 {
+      grid-area: Info1;
+    }
+
+    .Info2 {
+      grid-area: Info2;
+    }
+
+    .Info3 {
+      grid-area: Info3;
+    }
+
+    .Info4 {
+      grid-area: Info4;
     }
 
     div {
