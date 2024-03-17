@@ -1,48 +1,33 @@
 ---
 import Dashboard from "@/components/Icons/Dashboard.astro";
 import Settings from "@/components/Icons/Settings.astro";
+import Button from "../Button.astro";
 ---
 
 <nav>
   <ul>
     <li>
-      <a class="Nav-Section" href="/dashboard">
-        <span><Dashboard /></span>
-        <span>Panel</span>
-      </a>
-      <li>
-        <a class="Nav-Section" href="">
-          <!-- <span>Icon</span> -->
-          <span>Auth</span>
-        </a>
-      </li>
-      <li>
-        <a class="Nav-Section" href="">
-          <!-- <span>Icon</span> -->
-          <span>Database</span>
-        </a>
-      </li>
-      <li>
-        <a class="Nav-Section" href="">
-          <!-- <span>Icon</span> -->
-          <span>Function</span>
-        </a>
-      </li>
-      <li>
-        <a class="Nav-Section" href="">
-          <!-- <span>Icon</span> -->
-          <span>Storage</span>
-        </a>
-      </li>
+      <!-- <span>Icon</span> -->
+      <Button title="Panel" />
+    </li>
+    <li>
+      <!-- <span>Icon</span> -->
+      <Button title="Auth" />
+    </li>
+    <li>
+      <!-- <span>Icon</span> -->
+      <Button title="Database" />
+    </li>
+    <li>
+      <!-- <span>Icon</span> -->
+      <Button title="Function" />
     </li>
   </ul>
 </nav>
 
 <footer>
-  <a class="Nav-Section" href="#">
-    <span><Settings /></span>
-    <span>Setting</span>
-  </a>
+  <!-- <span>Icon</span> -->
+  <Button title="Ajustes" />
 </footer>
 
 <style lang="scss">
@@ -56,28 +41,11 @@ import Settings from "@/components/Icons/Settings.astro";
       display: flex;
       flex-flow: column wrap;
       align-content: center;
-      gap: 0.5rem;
+      gap: 1rem;
 
       li {
         height: 2.5rem;
       }
-    }
-  }
-
-  .Nav-Section {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    width: 10.5rem;
-    padding: 0.5rem 0.75rem;
-    font-size: 1em;
-    color: var(--White-Color);
-    background-color: var(--Green-Color-500);
-    border-radius: var(--Border);
-
-    &:hover {
-      background-color: var(--Green-Color-400);
-      transition: 0.3s ease;
     }
   }
 
