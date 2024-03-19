@@ -1,13 +1,11 @@
 ---
 import Avatar from "@/components/DashboardComponents/Avatar.astro";
 import Button from "@/components/Button.astro";
+import Logo from "@/components/Logo.astro";
 ---
 
 <header>
-  <div class="Logo">
-    <img src="/favicon.svg" alt="" />
-    <h2>Hydro<span>Green</span></h2>
-  </div>
+  <Logo />
   <div class="Session">
     <div class="Info">
       <Button title="Support" link="#" />
@@ -25,29 +23,6 @@ import Button from "@/components/Button.astro";
     align-items: center;
     height: 4rem;
     border-bottom: 2px solid var(--Green-Color-300);
-
-    .Logo {
-      display: flex;
-      align-items: center;
-      margin-left: 2rem;
-
-      img {
-        width: 1.6rem;
-      }
-
-      h2 {
-        font-size: 2.2rem;
-        font-family: "DM Sans Variable", sans-serif;
-        color: var(--Black-Color);
-        font-weight: 700;
-        margin-left: 0.5rem;
-
-        span {
-          font-style: italic;
-          color: var(--Green-Color-500);
-        }
-      }
-    }
 
     .Session {
       display: flex;
