@@ -58,6 +58,7 @@ import Layout from "@/layouts/Layout.astro";
     .Form {
       grid-area: Form;
       display: flex;
+      margin: 0 auto;
       justify-content: center;
       flex-direction: column;
       padding: 3rem;
@@ -165,6 +166,32 @@ import Layout from "@/layouts/Layout.astro";
       &:focus {
         outline: none;
         border: 2px solid var(--Green-Color-600);
+      }
+    }
+  }
+
+  @media (width <= 420px) {
+    .Container {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "Form";
+      width: auto;
+
+      .Form {
+        padding: 1.5rem;
+        width: 24rem;
+
+        .Divisor {
+          p {
+            font-size: 0.8em;
+          }
+        }
+      }
+
+      img {
+        display: none;
       }
     }
   }
