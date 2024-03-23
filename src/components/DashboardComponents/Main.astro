@@ -2,34 +2,30 @@
 import Card from "@/components/DashboardComponents/Card.astro";
 ---
 
-<header>
-  <h2>Informació en tiempo real</h2>
-  <section>
-    <div class="G1 Grafic"></div>
-    <div class="G2 Grafic"></div>
-    <div class="Info1">
-      <Card title="Strawberry" subtitle="Strawberry" info="Documents: 7" />
-    </div>
-    <div class="Info2">
-      <Card title="Strawberry" subtitle="Strawberry" info="Documents: 10" />
-    </div>
-    <div class="Info3">
-      <Card title="Strawberry" subtitle="Strawberry" info="Documents: 3" />
-    </div>
-    <div class="Info4">
-      <Card title="Strawberry" subtitle="Strawberry" info="Documents: 50" />
-    </div>
-    <div class="G3 Grafic"></div>
-  </section>
-</header>
+<h2>Informació en tiempo real</h2>
+<section>
+  <div class="G1 Grafic"></div>
+  <div class="G2 Grafic"></div>
+  <div class="Info1">
+    <Card title="Strawberry" subtitle="Strawberry" info="Documents: 7" />
+  </div>
+  <div class="Info2">
+    <Card title="Strawberry" subtitle="Strawberry" info="Documents: 10" />
+  </div>
+  <div class="Info3">
+    <Card title="Strawberry" subtitle="Strawberry" info="Documents: 3" />
+  </div>
+  <div class="Info4">
+    <Card title="Strawberry" subtitle="Strawberry" info="Documents: 50" />
+  </div>
+  <div class="G3 Grafic"></div>
+</section>
 
 <style lang="scss">
-  header {
-    h2 {
-      font-size: 1.5em;
-      padding: 1.5rem 16.125rem;
-      color: var(--Black-Color);
-    }
+  h2 {
+    font-size: 1.5em;
+    padding: 1.5rem 18rem;
+    color: var(--Black-Color);
   }
 
   section {
@@ -48,7 +44,7 @@ import Card from "@/components/DashboardComponents/Card.astro";
       "Info3 Info3 Info4 Info4 G3 G3";
 
     .Grafic {
-      background-color: #fff;
+      background-color: var(--Green-Color-200);
     }
 
     .G1 {
