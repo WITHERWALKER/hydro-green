@@ -1,17 +1,17 @@
 ---
 import Avatar from "@/components/DashboardComponents/Avatar.astro";
-import Button from "@/components/Button.astro";
 import Logo from "@/components/Logo.astro";
+import Notification from "../Icons/Notification.astro";
 ---
 
 <header>
-  <Logo />
+  <div class="Logo">
+    <img src="/favicon.svg" alt="" />
+  </div>
   <div class="Session">
-    <div class="Info">
-      <Button title="Support" link="#" />
-      <Button title="Upgrate" link="#" />
-    </div>
-
+    <button>
+      <Notification />
+    </button>
     <Avatar />
   </div>
 </header>
@@ -24,17 +24,25 @@ import Logo from "@/components/Logo.astro";
     height: 4rem;
     border-bottom: 2px solid var(--Green-Color-300);
 
+    .Logo {
+      display: flex;
+      justify-content: center;
+      width: 5rem;
+      height: 100%;
+      border-right: 2px solid var(--Green-Color-300);
+
+      img {
+        width: 2rem;
+      }
+    }
+
     .Session {
       display: flex;
-      gap: 1rem;
+      align-items: center;
+      gap: 2rem;
 
-      .Info {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        width: 13.5rem;
-        padding-right: 1rem;
-        border-right: 2px solid var(--Green-Color-300);
+      button {
+        padding: 0.5rem;
       }
     }
   }
