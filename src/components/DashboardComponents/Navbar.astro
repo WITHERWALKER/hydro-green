@@ -1,58 +1,43 @@
 ---
-import Dashboard from "@/components/Icons/Dashboard.astro";
-import Settings from "@/components/Icons/Settings.astro";
 import Button from "../Button.astro";
+import Dashboard from "../Icons/Dashboard.astro";
+import Settings from "../Icons/Settings.astro";
 ---
 
 <nav>
   <ul>
     <li>
-      <!-- <span>Icon</span> -->
-      <Button title="Panel" />
+      <a href="/dashboard">
+        <Dashboard />
+      </a>
     </li>
     <li>
-      <!-- <span>Icon</span> -->
-      <Button title="Auth" />
-    </li>
-    <li>
-      <!-- <span>Icon</span> -->
-      <Button title="Database" />
-    </li>
-    <li>
-      <!-- <span>Icon</span> -->
-      <Button title="Function" />
+      <a href="">
+        <Settings />
+      </a>
     </li>
   </ul>
 </nav>
 
-<footer>
-  <!-- <span>Icon</span> -->
-  <Button title="Ajustes" />
-</footer>
-
 <style lang="scss">
   nav {
-    padding: 1.5rem 1rem;
-    width: 12.5rem;
-    height: calc(100vh - 4rem - 5rem);
+    padding: 1rem 0;
+    width: 5rem;
+    height: calc(100vh - 4rem);
     border-right: 2px solid var(--Green-Color-300);
-
-    ul {
-      display: flex;
-      flex-flow: column wrap;
-      align-content: center;
-      gap: 1rem;
-
-      li {
-        height: 2.5rem;
-      }
-    }
   }
 
-  footer {
-    height: 5rem;
-    width: 12.5rem;
-    padding: 0 1rem;
-    border-right: 2px solid var(--Green-Color-300);
+  ul {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    gap: 1rem;
+
+    li {
+      background-color: var(--Green-Color-500);
+      padding: 0.5rem;
+      border-radius: var(--Border);
+      color: var(--Green-Color-50);
+    }
   }
 </style>
