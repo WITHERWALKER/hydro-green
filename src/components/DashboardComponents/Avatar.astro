@@ -3,12 +3,11 @@ import Logout from "@/components/Icons/Logout.astro";
 ---
 
 <div class="Container">
-  <img class="" src="" alt="" />
-
   <div class="User">
     <h1>Bienvenido</h1>
     <p>User</p>
   </div>
+  <img class="" src="" alt="" />
 
   <button>
     <Logout />
@@ -19,9 +18,8 @@ import Logout from "@/components/Icons/Logout.astro";
   .Container {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0 1rem;
-    border-left: 2px solid var(--Green-Color-400);
+    gap: 1.5rem;
+    padding-right: 2rem;
 
     img {
       border-radius: 50%;
@@ -31,15 +29,20 @@ import Logout from "@/components/Icons/Logout.astro";
   }
 
   .User {
+    line-height: normal;
     h1 {
       font-size: 1.1em;
       font-weight: 600;
-      color: var(--Black-Color);
+      color: var(--Green-Color-800);
     }
 
     p {
-      font-size: 1em;
-      color: var(--Black-Color);
+      font-size: 1.2em;
+      color: var(--Green-Color-800);
     }
+  }
+
+  button {
+    color: yellow;
   }
 </style>

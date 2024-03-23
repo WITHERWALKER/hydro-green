@@ -1,5 +1,4 @@
 ---
-import Button from "../Button.astro";
 import Dashboard from "../Icons/Dashboard.astro";
 import Settings from "../Icons/Settings.astro";
 ---
@@ -8,11 +7,13 @@ import Settings from "../Icons/Settings.astro";
   <ul>
     <li>
       <a href="/dashboard">
+        <span class="Tooltip">Panel</span>
         <Dashboard />
       </a>
     </li>
     <li>
       <a href="">
+        <span class="Tooltip">Ajustes</span>
         <Settings />
       </a>
     </li>
@@ -34,15 +35,39 @@ import Settings from "../Icons/Settings.astro";
     gap: 1rem;
 
     li {
-      padding: 0.6rem;
       border-radius: var(--Border);
       background-color: var(--Green-Color-500);
       color: var(--Green-Color-50);
 
       &:hover {
         background-color: var(--Green-Color-400);
-        transition: all 0.2s ease-out;
+        transition: 0.3s ease-out;
       }
     }
+  }
+
+  a {
+    position: relative;
+    display: block;
+    padding: 0.6rem;
+  }
+
+  .Tooltip {
+    position: absolute;
+    top: 0%;
+    left: 170%;
+    padding: 0.6em 0.7rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.3s ease-out;
+    border-radius: var(--Border);
+    background: var(--Green-Color-400);
+  }
+
+  a:hover .Tooltip {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 </style>
