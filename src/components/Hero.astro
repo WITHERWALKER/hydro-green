@@ -1,0 +1,93 @@
+---
+import Divisor from "./Divisor.astro";
+---
+
+<section>
+  <div class="Info">
+    <h1>
+      Cultiva Fresas Excepcionales<span>
+        <br aria-hidden="true" /> &bull;HydroGreen&bull;</span
+      >
+    </h1>
+    <p>
+      Descubre el poder de HydroGreen para cultivar fresas de manera sostenible
+      y eficiente. Nuestro sistema te guiará en el viaje hacia una producción
+      agrícola más verde.
+    </p>
+    <a href="">&bull; Empieza Aqui &bull;</a>
+  </div>
+  <div class="img">
+    <img src="/public/img/Fresa6.png" alt="" />
+  </div>
+</section>
+<Divisor />
+
+<style lang="scss">
+  section {
+    position: relative;
+    z-index: -1;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "info img";
+    height: 80vh;
+    border-radius: var(--Border);
+    background: linear-gradient(220.55deg, #fff6eb 0%, #dfd1c5 100%);
+  }
+
+  .Info {
+    grid-area: info;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5rem;
+    gap: 2rem;
+
+    h1 {
+      font-size: 7em;
+      font-weight: 400;
+      line-height: 7rem;
+
+      span {
+        font-weight: 600;
+        color: var(--Green-Color-700);
+        font-family: "Arya", sans-serif;
+      }
+    }
+
+    p {
+      max-width: 60%;
+    }
+
+    a {
+      width: 50%;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: 500;
+      padding: 0.5rem 0.9rem;
+      border-radius: var(--Border);
+      color: var(--Green-Color-50);
+      background-color: var(--Green-Color-700);
+
+      &:hover {
+        background-color: var(--Green-Color-800);
+        transition: 0.2s ease-out;
+      }
+    }
+  }
+
+  .img {
+    grid-area: img;
+    display: flex;
+    position: relative;
+    top: 2rem;
+    right: 10rem;
+    justify-content: center;
+    align-items: center;
+    margin: -15rem;
+
+    img {
+      width: 65rem;
+    }
+  }
+</style>
