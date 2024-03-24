@@ -1,7 +1,3 @@
----
-import Button from "./Button.astro";
----
-
 <header>
   <img src="/favicon.svg" alt="" />
   <nav>
@@ -54,10 +50,11 @@ import Button from "./Button.astro";
     li {
       a {
         font-size: 1.2em;
+        font-weight: 500;
         color: var(--Black-Color);
 
         &:hover {
-          color: var(--Green-Color-400);
+          color: var(--Green-Color-500);
           transition: 0.2s ease-out;
         }
       }
@@ -73,13 +70,15 @@ import Button from "./Button.astro";
     gap: 1rem;
 
     a {
+      font-size: 1em;
+      font-weight: 500;
       padding: 0.4rem 0.8rem;
       color: var(--Green-Color-50);
       border-radius: var(--Border);
-      background-color: var(--Green-Color-500);
+      background-color: var(--Green-Color-600);
 
       &:hover {
-        background-color: var(--Green-Color-700);
+        background-color: var(--Green-Color-800);
         transition: 0.2s ease-out;
       }
     }
