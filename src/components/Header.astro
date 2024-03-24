@@ -1,12 +1,16 @@
+---
+import Button from "./Button.astro";
+---
+
 <header>
   <img src="/favicon.svg" alt="" />
   <nav>
     <ul>
       <li>
-        <a href="/signin">Inicio</a>
+        <a href="/">Inicio</a>
       </li>
       <li>
-        <a href="/signup">Contacto</a>
+        <a href="#">Contacto</a>
       </li>
     </ul>
   </nav>
@@ -21,7 +25,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
+    margin: 1rem 0;
+    height: 5vh;
 
     backdrop-filter: blur(1rem);
     position: sticky;
@@ -68,13 +73,13 @@
     gap: 1rem;
 
     a {
-      padding: 0.3rem 0.5rem;
+      padding: 0.4rem 0.8rem;
       color: var(--Green-Color-50);
       border-radius: var(--Border);
       background-color: var(--Green-Color-500);
 
       &:hover {
-        background-color: var(--Green-Color-400);
+        background-color: var(--Green-Color-700);
         transition: 0.2s ease-out;
       }
     }
