@@ -11,20 +11,21 @@
     </ul>
   </nav>
   <section>
-    <a href="/signin">Sign In</a>
-    <a href="/signup">Sign Up</a>
+    <a href="/signin">&bull; Sign In &bull;</a>
+    <a href="/signup">&bull; Sign Up &bull;</a>
   </section>
 </header>
 
 <style lang="scss">
   header {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
     height: 5vh;
 
-    backdrop-filter: blur(1rem);
     position: sticky;
     top: 0;
     animation: header linear both;
@@ -34,6 +35,7 @@
 
   @keyframes header {
     to {
+      backdrop-filter: blur(1rem);
       background-color: rgba(0, 0, 0, 0.1);
       top: 0.5rem;
       width: 90%;
@@ -70,12 +72,14 @@
     gap: 1rem;
 
     a {
+      width: 6rem;
+      text-align: center;
       font-size: 1em;
       font-weight: 500;
-      padding: 0.4rem 0.8rem;
-      color: var(--Green-Color-50);
+      padding: 0.4rem 0.5rem;
       border-radius: var(--Border);
-      background-color: var(--Green-Color-600);
+      color: var(--Green-Color-50);
+      background-color: var(--Green-Color-700);
 
       &:hover {
         background-color: var(--Green-Color-800);
