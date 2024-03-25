@@ -2,30 +2,25 @@
 import Divisor from "./Divisor.astro";
 ---
 
-<div class="Container">
-  <section>
-    <div class="Info">
-      <h1>
-        Cultiva Fresas Excepcionales<span> &bull;HydroGreen&bull;</span>
-      </h1>
-      <p>
-        Descubre el poder de HydroGreen para cultivar fresas de manera
-        sostenible y eficiente. Nuestro sistema te guiará en el viaje hacia una
-        producción agrícola más verde.
-      </p>
-      <a href="/signup">&bull; Empieza Aqui &bull;</a>
-    </div>
-  </section>
+<section>
+  <div class="Info">
+    <h1>
+      Cultiva Fresas Excepcionales<span> &bull;HydroGreen&bull;</span>
+    </h1>
+    <p>
+      Descubre el poder de HydroGreen para cultivar fresas de manera sostenible
+      y eficiente. Nuestro sistema te guiará en el viaje hacia una producción
+      agrícola más verde.
+    </p>
+    <a href="/signup">&bull; Empieza Aqui &bull;</a>
+  </div>
   <img src="/img/Fresa6.png" alt="" />
-</div>
+</section>
 <Divisor />
 
 <style lang="scss">
-  .Container {
-    position: relative;
-  }
-
   section {
+    position: relative;
     display: flex;
     height: 80vh;
     border-radius: var(--Border);
@@ -33,15 +28,12 @@ import Divisor from "./Divisor.astro";
   }
 
   .Info {
-    position: relative;
-    z-index: 2;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding-left: 5rem;
     gap: 2rem;
-
-    width: 50%;
+    width: 70%;
 
     h1 {
       font-size: 7em;
@@ -56,12 +48,11 @@ import Divisor from "./Divisor.astro";
     }
 
     p {
-      min-width: 60%;
-      max-width: 80%;
+      width: 70%;
     }
 
     a {
-      max-width: 50%;
+      max-width: 55%;
       text-align: center;
       font-size: 1.2em;
       font-weight: 500;
@@ -78,58 +69,96 @@ import Divisor from "./Divisor.astro";
   }
 
   img {
-    position: absolute;
-    z-index: 1;
-    right: -5rem;
-    top: -8rem;
-    width: 65rem;
+    display: flex;
+    width: 100%;
+    object-fit: contain;
   }
 
-  @media (width <= 1536px) {
+  // Media Queries ------------------------------------------------ */
+  @media (width <= 1645px) {
     img {
-      width: 10rem;
+      width: 40%;
     }
   }
 
-  // Media Queries ------------------------------------------------ */
-  @media (375px <= width <= 425px) {
+  @media (width <= 1450px) {
+    img {
+      width: 30%;
+    }
+  }
+
+  @media (width <= 1240px) {
+    .Info {
+      width: 100%;
+      padding-left: 3rem;
+
+      p {
+        width: 50%;
+      }
+    }
+
+    img {
+      width: 40%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  @media (width <= 1130px) {
     .Info {
       align-items: center;
-      padding: 0 2rem;
+      padding: 5rem 2rem;
 
       h1 {
-        font-size: 2.7em;
         text-align: center;
       }
 
       p {
-        text-wrap: pretty;
+        width: 70%;
         text-align: center;
       }
+    }
 
-      img {
-        width: 15rem;
+    img {
+      margin: 0;
+      display: none;
+    }
+  }
+
+  @media (width <= 810px) {
+    .Info {
+      h1 {
+        font-size: 5em;
       }
     }
   }
 
-  // Media Queries ------------------------------------------------ */
-  @media (width <= 375px) {
+  @media (width <= 640px) {
     .Info {
-      padding: 0 1.5rem;
-      align-items: center;
+      h1 {
+        font-size: 4em;
+      }
+    }
+  }
+
+  @media (width <= 480px) {
+    .Info {
+      padding: 1rem;
 
       h1 {
-        font-size: 2em;
-        text-align: center;
+        font-size: 3em;
       }
 
       p {
-        text-align: center;
+        width: 100%;
+        font-size: 0.8em;
       }
 
-      img {
-        width: 12rem;
+      a {
+        font-size: 1em;
+        padding: 0.5rem;
+        width: 100%;
       }
     }
   }
