@@ -1,7 +1,18 @@
 ---
 import GoogleColor from "@/components/Icons/GoogleColor.astro";
-import Layout from "@/layouts/Layout.astro";
 import Input from "@/components/Input.astro";
+import { app } from "../firebase/server";
+import { getAuth } from "firebase-admin/auth";
+import Layout from "../layouts/Layout.astro";
+
+const auth = getAuth(app);
+if (Astro.cookies.has("session")) {
+  const sessionCookie = Astro.cookies.get("session").value;
+  const decodedCookie = await auth.verifySessionCookie(sessionCookie);
+  if (decodedCookie) {
+    return Astro.redirect("/dashboard");
+  }
+}
 ---
 
 <Layout>
@@ -11,16 +22,17 @@ import Input from "@/components/Input.astro";
         <h1>Inicia sesión, <span>bienvenido!</span></h1>
         <p>Elige una de las opciones para acceder.</p>
       </div>
-      <form action="">
-        <Input type="email" placeholder="Correo electronico" />
-        <Input type="password" placeholder="Contraseña" />
+      <form action="/api/auth/signin" method="post">
+        <Input type="email" placeholder="Correo electronico" name="email" />
+        <Input type="password" placeholder="Contraseña" name="password" />
+
+        <button>&bullet; Sign In &bullet;</button>
       </form>
       <div class="Divisor">
         <p>O continua con Google</p>
         <span></span>
       </div>
-      <a href="#"><GoogleColor /> Google</a>
-      <button>&bullet; Sign In &bullet;</button>
+      <button id="Google"><GoogleColor /> Google</button>
     </div>
     <img src="/img/HuertoFresas.webp" alt="" />
   </div>
@@ -95,27 +107,15 @@ import Input from "@/components/Input.astro";
         }
       }
 
-      a {
+      #Google {
         display: flex;
-        color: var(--Green-Color-50);
         gap: 0.5rem;
-        font-weight: 500;
-        justify-content: center;
-        background-color: var(--Green-Color-700);
-        padding: 0.75rem;
-        margin: 0 auto;
         width: 50%;
-        border-radius: 0.5rem;
-        text-align: center;
-
-        &:hover {
-          background-color: var(--Green-Color-800);
-          transition: 0.2s ease-out;
-        }
+        margin: 1rem auto;
       }
 
       button {
-        margin: 4rem auto 0;
+        margin: 1rem 0;
         display: flex;
         justify-content: center;
         padding: 0.6rem;
@@ -173,10 +173,6 @@ import Input from "@/components/Input.astro";
             font-size: 0.8em;
           }
         }
-
-        button {
-          margin: 3rem auto 0;
-        }
       }
 
       img {
@@ -185,3 +181,60 @@ import Input from "@/components/Input.astro";
     }
   }
 </style>
+
+<script>
+  import {
+    getAuth,
+    inMemoryPersistence,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup,
+  } from "firebase/auth";
+  import { app } from "../firebase/client";
+
+  const auth = getAuth(app);
+  auth.setPersistence(inMemoryPersistence);
+
+  const form = document.querySelector("form") as HTMLFormElement;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const email = formData.get("email")?.toString();
+    const password = formData.get("password")?.toString();
+
+    if (!email || !password) {
+      return;
+    }
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const idToken = await userCredential.user.getIdToken();
+    const response = await fetch("/api/auth/signin", {
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
+    });
+
+    if (response.redirected) {
+      window.location.assign(response.url);
+    }
+  });
+
+  const googleSignin = document.querySelector("#Google") as HTMLButtonElement;
+  googleSignin.addEventListener("click", async () => {
+    const provider = new GoogleAuthProvider();
+    const userCredential = await signInWithPopup(auth, provider);
+    const idToken = await userCredential.user.getIdToken();
+    const res = await fetch("/api/auth/signin", {
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
+    });
+
+    if (res.redirected) {
+      window.location.assign(res.url);
+    }
+  });
+</script>

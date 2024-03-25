@@ -10,13 +10,12 @@ import Layout from "@/layouts/Layout.astro";
         <h1>Comienza tu <span>viaje aqui!</span></h1>
         <p>Únete ahora y comienza a explorar.</p>
       </div>
-      <form action="">
-        <Input type="text" placeholder="Nombre" />
-        <Input type="email" placeholder="Correo electronico" />
-        <Input type="password" placeholder="Contraseña" />
+      <form action="/api/auth/register" method="post">
+        <Input type="text" placeholder="Nombre" name="name" />
+        <Input type="email" placeholder="Correo electronico" name="email" />
+        <Input type="password" placeholder="Contraseña" name="password" />
+        <button type="submit">Sign Up</button>
       </form>
-
-      <button>Sign Up</button>
     </div>
     <img src="/img/FresasFrescas.webp" alt="" />
   </div>

@@ -1,6 +1,21 @@
 ---
 import DashboardLayout from "@/layouts/DashboardLayout.astro";
 import Card from "@/components/DashboardComponents/Card.astro";
+import { app } from "../firebase/server";
+import { getAuth } from "firebase-admin/auth";
+const auth = getAuth(app);
+
+/* Verificar la sesión actual */
+if (!Astro.cookies.has("session")) {
+  return Astro.redirect("/signin");
+}
+const sessionCookie = Astro.cookies.get("session").value;
+const decodedCookie = await auth.verifySessionCookie(sessionCookie);
+const user = await auth.getUser(decodedCookie.uid);
+
+if (!user) {
+  return Astro.redirect("/signin");
+}
 ---
 
 <DashboardLayout>
