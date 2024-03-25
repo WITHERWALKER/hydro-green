@@ -8,75 +8,79 @@
       <li>
         <a href="#">Contacto</a>
       </li>
+      <li>
+        <a href="/dashboard">Dashboard</a>
+      </li>
     </ul>
+
+    <section>
+      <a href="/signin">&bull; Sign In &bull;</a>
+      <a href="/signup">&bull; Sign Up &bull;</a>
+    </section>
   </nav>
-  <section>
-    <a href="/signin">&bull; Sign In &bull;</a>
-    <a href="/signup">&bull; Sign Up &bull;</a>
-  </section>
+
+  <label>
+    <input type="checkbox" />
+  </label>
 </header>
 
 <style lang="scss">
+  :root {
+    --url-menu: url("/MenuOpen.svg");
+    --opacity-menu: 0;
+    --transform-menu: translateY(-120%);
+    --pointer-menu: unset;
+  }
+
   header {
-    position: relative;
-    z-index: 1;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 0;
-    height: 5vh;
 
-    position: sticky;
-    top: 0;
-    animation: header linear both;
-    animation-timeline: scroll();
-    animation-range: 0 20rem;
-  }
-
-  @keyframes header {
-    to {
-      backdrop-filter: blur(1rem);
-      background-color: rgba(0, 0, 0, 0.1);
-      top: 0.5rem;
-      width: 90%;
-      margin: 0 auto;
-      padding: 0.5rem;
-      border-radius: 1.5rem;
+    img {
+      width: 2rem;
+      display: block;
     }
   }
 
-  ul {
+  nav {
+    min-width: 60%;
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
 
-    li {
-      a {
-        font-size: 1.2em;
-        font-weight: 500;
-        color: var(--Black-Color);
+    ul {
+      display: flex;
+      gap: 1rem;
 
-        &:hover {
-          color: var(--Green-Color-500);
-          transition: 0.2s ease-out;
+      li {
+        a {
+          font-size: 1.3em;
+          font-weight: 500;
+          color: var(--Black-Color);
+
+          &:hover {
+            color: var(--Green-Color-600);
+            transition: 0.2s ease-out;
+          }
         }
       }
     }
   }
 
-  img {
-    width: 2rem;
-  }
-
   section {
     display: flex;
     gap: 1rem;
+    margin-left: 3rem;
 
     a {
-      width: 6rem;
       text-align: center;
+      padding: 0.5rem 1.5rem;
+      min-width: max-content;
+      width: 100%;
       font-size: 1em;
       font-weight: 500;
-      padding: 0.4rem 0.5rem;
       border-radius: var(--Border);
       color: var(--Green-Color-50);
       background-color: var(--Green-Color-700);
@@ -84,6 +88,74 @@
       &:hover {
         background-color: var(--Green-Color-800);
         transition: 0.2s ease-out;
+      }
+    }
+  }
+
+  label {
+    display: none;
+  }
+
+  // Media Queries ------------------------------------------------ */
+
+  @media (320px <= width <= 768px) {
+    header {
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav {
+      flex-direction: column;
+      position: absolute;
+      width: 90%;
+      z-index: 1;
+      top: 80px;
+      padding: 1rem 1.5rem;
+      background-color: var(--Bg-Color);
+      pointer-events: var(--pointer-menu);
+      opacity: var(--opacity-menu);
+      transform: var(--transform-menu);
+
+      transition:
+        0.5s opacity,
+        transform 0.8s;
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.7rem;
+      }
+    }
+
+    header:has(:checked) {
+      --url-menu: url("/MenuClose.svg");
+      --opacity-menu: 1;
+      --transform-menu: translate(0);
+      // --pointer-menu: unset;
+    }
+
+    section {
+      gap: 1.5rem;
+      margin: 0;
+      margin-top: 1.5rem;
+
+      a {
+        padding: 0.5rem 2rem;
+      }
+    }
+
+    label {
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-image: var(--url-menu);
+      background-size: contain;
+      background-position: center;
+      cursor: pointer;
+      transition: background-image 0.2s;
+
+      input {
+        display: none;
       }
     }
   }
