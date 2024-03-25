@@ -2,51 +2,51 @@
 import Divisor from "./Divisor.astro";
 ---
 
-<section>
-  <div class="Info">
-    <h1>
-      Cultiva Fresas Excepcionales<span>
-        <br aria-hidden="true" /> &bull;HydroGreen&bull;</span
-      >
-    </h1>
-    <p>
-      Descubre el poder de HydroGreen para cultivar fresas de manera sostenible
-      y eficiente. Nuestro sistema te guiará en el viaje hacia una producción
-      agrícola más verde.
-    </p>
-    <a href="">&bull; Empieza Aqui &bull;</a>
-  </div>
-  <div class="img">
-    <img src="/public/img/Fresa6.png" alt="" />
-  </div>
-</section>
+<div class="Container">
+  <section>
+    <div class="Info">
+      <h1>
+        Cultiva Fresas Excepcionales<span> &bull;HydroGreen&bull;</span>
+      </h1>
+      <p>
+        Descubre el poder de HydroGreen para cultivar fresas de manera
+        sostenible y eficiente. Nuestro sistema te guiará en el viaje hacia una
+        producción agrícola más verde.
+      </p>
+      <a href="/signup">&bull; Empieza Aqui &bull;</a>
+    </div>
+  </section>
+  <img src="/img/Fresa6.png" alt="" />
+</div>
 <Divisor />
 
 <style lang="scss">
-  section {
+  .Container {
     position: relative;
-    z-index: -1;
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "info img";
+  }
+
+  section {
+    display: flex;
     height: 80vh;
     border-radius: var(--Border);
     background: linear-gradient(220.55deg, #fff6eb 0%, #dfd1c5 100%);
   }
 
   .Info {
-    grid-area: info;
+    position: relative;
+    z-index: 2;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 5rem;
+    padding-left: 5rem;
     gap: 2rem;
+
+    width: 50%;
 
     h1 {
       font-size: 7em;
       font-weight: 400;
-      line-height: 7rem;
+      line-height: 0.9;
 
       span {
         font-weight: 600;
@@ -56,11 +56,12 @@ import Divisor from "./Divisor.astro";
     }
 
     p {
-      max-width: 60%;
+      min-width: 60%;
+      max-width: 80%;
     }
 
     a {
-      width: 50%;
+      max-width: 50%;
       text-align: center;
       font-size: 1.2em;
       font-weight: 500;
@@ -76,18 +77,60 @@ import Divisor from "./Divisor.astro";
     }
   }
 
-  .img {
-    grid-area: img;
-    display: flex;
-    position: relative;
-    top: 2rem;
-    right: 10rem;
-    justify-content: center;
-    align-items: center;
-    margin: -15rem;
+  img {
+    position: absolute;
+    z-index: 1;
+    right: -5rem;
+    top: -8rem;
+    width: 65rem;
+  }
 
+  @media (width <= 1536px) {
     img {
-      width: 65rem;
+      width: 10rem;
+    }
+  }
+
+  // Media Queries ------------------------------------------------ */
+  @media (375px <= width <= 425px) {
+    .Info {
+      align-items: center;
+      padding: 0 2rem;
+
+      h1 {
+        font-size: 2.7em;
+        text-align: center;
+      }
+
+      p {
+        text-wrap: pretty;
+        text-align: center;
+      }
+
+      img {
+        width: 15rem;
+      }
+    }
+  }
+
+  // Media Queries ------------------------------------------------ */
+  @media (width <= 375px) {
+    .Info {
+      padding: 0 1.5rem;
+      align-items: center;
+
+      h1 {
+        font-size: 2em;
+        text-align: center;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      img {
+        width: 12rem;
+      }
     }
   }
 </style>
