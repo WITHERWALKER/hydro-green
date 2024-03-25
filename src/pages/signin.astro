@@ -19,8 +19,8 @@ import Input from "@/components/Input.astro";
         <p>O continua con Google</p>
         <span></span>
       </div>
-      <a href="#"><GoogleColor /></a>
-      <button>Sign In</button>
+      <a href="#"><GoogleColor /> Google</a>
+      <button>&bullet; Sign In &bullet;</button>
     </div>
     <img src="/img/HuertoFresas.webp" alt="" />
   </div>
@@ -52,7 +52,7 @@ import Input from "@/components/Input.astro";
       padding: 3rem;
       height: 37.5rem;
       width: 28.125rem;
-      background-color: #ffffff;
+      background-color: #fff;
       border-top-left-radius: var(--Border);
       border-bottom-left-radius: var(--Border);
 
@@ -66,12 +66,13 @@ import Input from "@/components/Input.astro";
 
           span {
             font-weight: 600;
-            color: var(--Green-Color-500);
+            color: var(--Green-Color-700);
           }
         }
 
         p {
-          color: var(--Grey-Color);
+          font-size: 1em;
+          font-weight: 500;
         }
       }
 
@@ -82,12 +83,12 @@ import Input from "@/components/Input.astro";
 
         p {
           font-size: 1em;
-          color: var(--Grey-Color);
+          font-weight: 500;
           margin-right: 0.75rem;
         }
 
         span {
-          border: 1px solid var(--Grey-Color);
+          border: 1px solid var(--Black-Color);
           opacity: 0.5;
           width: 11.25rem;
           height: 0;
@@ -96,17 +97,20 @@ import Input from "@/components/Input.astro";
 
       a {
         display: flex;
+        color: var(--Green-Color-50);
+        gap: 0.5rem;
+        font-weight: 500;
         justify-content: center;
-        background-color: #e6e6e6;
+        background-color: var(--Green-Color-700);
         padding: 0.75rem;
         margin: 0 auto;
-        width: 60%;
+        width: 50%;
         border-radius: 0.5rem;
         text-align: center;
 
         &:hover {
-          background-color: var(--Bg-Color);
-          transition: 0.4s ease-out;
+          background-color: var(--Green-Color-800);
+          transition: 0.2s ease-out;
         }
       }
 
@@ -114,17 +118,17 @@ import Input from "@/components/Input.astro";
         margin: 4rem auto 0;
         display: flex;
         justify-content: center;
-        padding: 0.7rem;
-        width: 60%;
-        background-color: var(--Green-Color-500);
-        color: var(--White-Color);
+        padding: 0.6rem;
+        width: 80%;
+        background-color: var(--Green-Color-700);
+        color: var(--Green-Color-50);
         border-radius: var(--Border);
-        font-size: 1.1em;
+        font-size: 1.2em;
         font-weight: 500;
 
         &:hover {
-          background-color: var(--Green-Color-400);
-          transition: 0.3s ease;
+          background-color: var(--Green-Color-800);
+          transition: 0.2s ease;
         }
       }
     }
