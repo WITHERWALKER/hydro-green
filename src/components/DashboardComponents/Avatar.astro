@@ -1,17 +1,26 @@
 ---
 import Logout from "@/components/Icons/Logout.astro";
+import { app } from "@/firebase/server";
+import { getAuth } from "firebase-admin/auth";
+const auth = getAuth(app);
+
+const sessionCookie = Astro.cookies.get("session").value;
+const decodedCookie = await auth.verifySessionCookie(sessionCookie);
+const user = await auth.getUser(decodedCookie.uid);
 ---
 
 <div class="Container">
   <div class="User">
     <h1>Bienvenido</h1>
-    <p>User</p>
+    <p>{user.displayName}</p>
   </div>
-  <img class="" src="" alt="" />
+  <img src={user.photoURL} alt="" />
 
-  <button>
-    <Logout />
-  </button>
+  <form action="/api/auth/signout">
+    <button>
+      <Logout />
+    </button>
+  </form>
 </div>
 
 <style lang="scss">
@@ -30,6 +39,7 @@ import Logout from "@/components/Icons/Logout.astro";
 
   .User {
     line-height: normal;
+    text-align: right;
     h1 {
       font-size: 1.1em;
       font-weight: 600;
@@ -42,7 +52,7 @@ import Logout from "@/components/Icons/Logout.astro";
     }
   }
 
-  button {
-    color: yellow;
+  form {
+    display: flex;
   }
 </style>

@@ -1,8 +1,14 @@
 ---
-const { type, placeholder } = Astro.props;
+const { type, placeholder, name } = Astro.props;
 ---
 
-<input required="" type={type} autocomplete="off" placeholder={placeholder} />
+<input
+  required=""
+  type={type}
+  autocomplete="off"
+  placeholder={placeholder}
+  name={name}
+/>
 
 <style>
   input {
