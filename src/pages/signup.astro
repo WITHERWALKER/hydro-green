@@ -6,6 +6,7 @@ import Layout from "@/layouts/Layout.astro";
 <Layout>
   <div class="Container">
     <div class="Form">
+      <img src="/favicon.svg" alt="" />
       <div class="Description">
         <h1>Comienza tu <span>viaje aqui!</span></h1>
         <p>Únete ahora y comienza a explorar.</p>
@@ -20,7 +21,7 @@ import Layout from "@/layouts/Layout.astro";
       </form>
     </div>
 
-    <img src="/img/Fresa8.webp" alt="" />
+    <img src="/img/Fresa1.jpg" alt="" />
   </div>
 </Layout>
 
@@ -32,6 +33,7 @@ import Layout from "@/layouts/Layout.astro";
   .Container {
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
     align-items: center;
 
     .Form {
@@ -42,8 +44,15 @@ import Layout from "@/layouts/Layout.astro";
       padding: 3rem;
       height: 37.5rem;
       width: 28.125rem;
-      background-color: #fff;
       border-radius: var(--Border);
+      background: var(--Bg-Gradient);
+      outline: 3px solid var(--Green-Color-700);
+
+      img {
+        width: 2rem;
+        height: auto;
+        margin: 0 auto;
+      }
 
       .Description {
         margin-bottom: 1.75rem;
@@ -65,7 +74,7 @@ import Layout from "@/layouts/Layout.astro";
       }
 
       button {
-        margin: 4rem auto 0;
+        margin: 3rem auto 0;
         display: flex;
         justify-content: center;
         padding: 0.7rem;

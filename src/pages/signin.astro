@@ -18,6 +18,7 @@ if (Astro.cookies.has("session")) {
 <Layout>
   <div class="Container">
     <div class="Form">
+      <img src="/favicon.svg" alt="" />
       <div class="Description">
         <h1>Inicia sesión, <span>bienvenido!</span></h1>
         <p>Elige una de las opciones para acceder.</p>
@@ -62,6 +63,13 @@ if (Astro.cookies.has("session")) {
       width: 28.125rem;
       background-color: #fff;
       border-radius: var(--Border);
+      background: var(--Bg-Gradient);
+      outline: 3px solid var(--Green-Color-700);
+
+      img {
+        width: 2rem;
+        margin: 0 auto;
+      }
 
       .Description {
         margin-bottom: 1.75rem;
@@ -145,18 +153,12 @@ if (Astro.cookies.has("session")) {
   // Media Queries ------------------------------------------------ */
   @media (width <= 1024px) {
     .Container {
-      display: grid;
-      justify-items: center;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-      grid-template-areas: "Form";
-      width: auto;
+      align-items: center;
 
       .Form {
         padding: 1.5rem;
         width: 24rem;
         height: 33rem;
-        border-radius: var(--Border);
 
         .Description {
           font-size: 0.9rem;
