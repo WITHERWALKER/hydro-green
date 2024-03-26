@@ -1,8 +1,8 @@
 ---
-import GoogleColor from "@/components/Icons/GoogleColor.astro";
-import Input from "@/components/Input.astro";
 import { app } from "../firebase/server";
 import { getAuth } from "firebase-admin/auth";
+import GoogleColor from "@/components/Icons/GoogleColor.astro";
+import Input from "@/components/Input.astro";
 import Layout from "../layouts/Layout.astro";
 
 const auth = getAuth(app);
@@ -22,19 +22,23 @@ if (Astro.cookies.has("session")) {
         <h1>Inicia sesión, <span>bienvenido!</span></h1>
         <p>Elige una de las opciones para acceder.</p>
       </div>
+
       <form action="/api/auth/signin" method="post">
         <Input type="email" placeholder="Correo electronico" name="email" />
         <Input type="password" placeholder="Contraseña" name="password" />
 
         <button>&bullet; Sign In &bullet;</button>
       </form>
+
       <div class="Divisor">
         <p>O continua con Google</p>
         <span></span>
       </div>
+
       <button id="Google"><GoogleColor /> Google</button>
     </div>
-    <img src="/img/HuertoFresas.webp" alt="" />
+
+    <img src="/img/Fresa7.webp" alt="" loading="eager" />
   </div>
 </Layout>
 
@@ -44,29 +48,20 @@ if (Astro.cookies.has("session")) {
   }
 
   .Container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-template-areas: "Form Img";
-    width: 56.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .Form {
-      grid-area: Form;
       display: flex;
-      margin: 0 auto;
       justify-content: center;
       flex-direction: column;
+      margin: 0 auto;
       padding: 3rem;
       height: 37.5rem;
       width: 28.125rem;
       background-color: #fff;
-      border-top-left-radius: var(--Border);
-      border-bottom-left-radius: var(--Border);
+      border-radius: var(--Border);
 
       .Description {
         margin-bottom: 1.75rem;
@@ -135,11 +130,9 @@ if (Astro.cookies.has("session")) {
   }
 
   img {
-    grid-area: Img;
-    width: 28.125rem;
-    height: 37.5rem;
-    border-top-right-radius: var(--Border);
-    border-bottom-right-radius: var(--Border);
+    width: 50%;
+    height: 100vh;
+    object-fit: cover;
   }
 
   form {
@@ -149,6 +142,7 @@ if (Astro.cookies.has("session")) {
     gap: 1rem;
   }
 
+  // Media Queries ------------------------------------------------ */
   @media (width <= 1024px) {
     .Container {
       display: grid;
