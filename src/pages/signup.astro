@@ -10,14 +10,17 @@ import Layout from "@/layouts/Layout.astro";
         <h1>Comienza tu <span>viaje aqui!</span></h1>
         <p>Únete ahora y comienza a explorar.</p>
       </div>
+
       <form action="/api/auth/register" method="post">
         <Input type="text" placeholder="Nombre" name="name" />
         <Input type="email" placeholder="Correo electronico" name="email" />
         <Input type="password" placeholder="Contraseña" name="password" />
+
         <button type="submit">Sign Up</button>
       </form>
     </div>
-    <img src="/img/FresasFrescas.webp" alt="" />
+
+    <img src="/img/Fresa8.webp" alt="" />
   </div>
 </Layout>
 
@@ -27,28 +30,20 @@ import Layout from "@/layouts/Layout.astro";
   }
 
   .Container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-template-areas: "Img Form";
-    width: 56.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .Form {
-      grid-area: Form;
       display: flex;
       justify-content: center;
       flex-direction: column;
+      margin: 0 auto;
       padding: 3rem;
       height: 37.5rem;
       width: 28.125rem;
-      background-color: #ffffff;
-      border-top-right-radius: var(--Border);
-      border-bottom-right-radius: var(--Border);
+      background-color: #fff;
+      border-radius: var(--Border);
 
       .Description {
         margin-bottom: 1.75rem;
@@ -60,7 +55,7 @@ import Layout from "@/layouts/Layout.astro";
 
           span {
             font-weight: 600;
-            color: var(--Green-Color-500);
+            color: var(--Green-Color-700);
           }
         }
 
@@ -75,27 +70,24 @@ import Layout from "@/layouts/Layout.astro";
         justify-content: center;
         padding: 0.7rem;
         width: 60%;
-        background-color: var(--Green-Color-500);
-        color: var(--White-Color);
+        background-color: var(--Green-Color-700);
+        color: var(--Green-Color-50);
         border-radius: var(--Border);
         font-size: 1.1em;
         font-weight: 500;
 
         &:hover {
-          background-color: var(--Green-Color-400);
-          transition: 0.3s ease;
+          background-color: var(--Green-Color-800);
+          transition: 0.2s ease-out;
         }
       }
     }
   }
 
   img {
-    grid-area: Img;
-    width: 28.125rem;
-    height: 37.5rem;
+    width: 50%;
+    height: 100vh;
     object-fit: cover;
-    border-top-left-radius: var(--Border);
-    border-bottom-left-radius: var(--Border);
   }
 
   form {
@@ -103,5 +95,38 @@ import Layout from "@/layouts/Layout.astro";
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+  }
+
+  // Media Queries ------------------------------------------------ */
+  @media (width <= 1024px) {
+    .Container {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "Form";
+      width: auto;
+
+      .Form {
+        padding: 1.5rem;
+        width: 24rem;
+        height: 33rem;
+        border-radius: var(--Border);
+
+        .Description {
+          font-size: 0.9rem;
+        }
+
+        .Divisor {
+          p {
+            font-size: 0.8em;
+          }
+        }
+      }
+
+      img {
+        display: none;
+      }
+    }
   }
 </style>
