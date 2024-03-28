@@ -1,0 +1,74 @@
+---
+import Sensor from "./Icons/Sensor.astro";
+---
+
+<section>
+  <h1>¿Que hacemos?</h1>
+  <div>
+    <article>
+      <Sensor />
+      <h3>Example</h3>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
+        eaque.
+      </p>
+    </article>
+    <article>
+      <Sensor />
+      <h3>Example</h3>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
+        eaque.
+      </p>
+    </article>
+    <article>
+      <Sensor />
+      <h3>Example</h3>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
+        eaque.
+      </p>
+    </article>
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    margin: 10rem 0;
+
+    h1 {
+      font-size: 4em;
+      font-weight: 600;
+      color: var(--Green-Color-700);
+      font-family: "Arya", sans-serif;
+    }
+
+    div {
+      display: flex;
+      gap: 15rem;
+    }
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 15rem;
+    height: 15rem;
+
+    h3 {
+      font-size: 2em;
+      font-weight: 500;
+      color: var(--Green-Color-800);
+    }
+
+    p {
+      font-size: 1.1em;
+    }
+  }
+</style>
