@@ -99,8 +99,7 @@
   }
 
   // Media Queries ------------------------------------------------ */
-
-  @media (320px <= width <= 768px) {
+  @media (width <= 768px) {
     header {
       align-items: center;
       justify-content: space-between;
@@ -113,8 +112,10 @@
       z-index: 1;
       top: 80px;
       padding: 1rem 1.5rem;
-      background: linear-gradient(220.55deg, #fff6eb 0%, #dfd1c5 100%);
-      border: 2px solid var(--Green-Color-600);
+      background: var(--Bg-Gradient);
+      border: 3px solid var(--Green-Color-700);
+      border-radius: var(--Border);
+
       pointer-events: var(--pointer-menu);
       opacity: var(--opacity-menu);
       transform: var(--transform-menu);
@@ -159,6 +160,15 @@
 
       input {
         display: none;
+      }
+    }
+  }
+
+  // Media Queries ------------------------------------------------ */
+  @media (width <= 375px) {
+    section {
+      a {
+        padding: 0.5rem 1rem;
       }
     }
   }
