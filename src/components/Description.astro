@@ -1,0 +1,55 @@
+<section>
+  <div class="Img"></div>
+
+  <article>
+    <h1>HydroGreen</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, eius totam
+      alias porro consequatur tenetur!
+    </p>
+    <ul>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+  </article>
+</section>
+
+<style lang="scss">
+  section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10rem;
+
+    .Img {
+      width: 50%;
+      border-radius: var(--Border);
+      background-image: url(/img/Fresa2.webp);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top right;
+    }
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    width: 40%;
+
+    h1 {
+      font-size: 3em;
+    }
+
+    ul {
+      list-style: disc;
+      margin-left: 2rem;
+      font-size: 1.1em;
+    }
+  }
+</style>
