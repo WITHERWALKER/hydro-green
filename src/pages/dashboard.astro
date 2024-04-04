@@ -22,20 +22,28 @@ if (!user) {
   <h2>Informació en tiempo real</h2>
   <section>
     <div class="G1 Grafic"></div>
+
     <div class="G2 Grafic"></div>
-    <div class="Info1">
+
+    <div class="G3 Grafic"></div>
+
+    <div class="G4 Grafic"></div>
+
+    <div class="I1">
       <Card title="Strawberry" subtitle="Strawberry" info="Documents: 7" />
     </div>
-    <div class="Info2">
+
+    <div class="I2">
       <Card title="Strawberry" subtitle="Strawberry" info="Documents: 10" />
     </div>
-    <div class="Info3">
+
+    <div class="I3">
       <Card title="Strawberry" subtitle="Strawberry" info="Documents: 3" />
     </div>
-    <div class="Info4">
+
+    <div class="I4">
       <Card title="Strawberry" subtitle="Strawberry" info="Documents: 50" />
     </div>
-    <div class="G3 Grafic"></div>
   </section>
 </DashboardLayout>
 
@@ -49,17 +57,16 @@ if (!user) {
   section {
     height: calc(100vh - 12rem);
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 1rem;
-    border-radius: var(--Border);
     width: 70%;
     margin: 0 auto;
     grid-template-areas:
-      "G1 G1 G1 G2 G2 G2"
-      "G1 G1 G1 G2 G2 G2"
-      "Info1 Info1 Info2 Info2 G3 G3"
-      "Info3 Info3 Info4 Info4 G3 G3";
+      "G1 G1 G1 G2 G2 G3 G3"
+      "G1 G1 G1 G2 G2 G3 G3"
+      "I1 I1 I3 I3 G4 G4 G4"
+      "I2 I2 I4 I4 G4 G4 G4";
 
     .Grafic {
       background-color: var(--Green-Color-200);
@@ -69,28 +76,32 @@ if (!user) {
       grid-area: G1;
     }
 
+    .I1 {
+      grid-area: I1;
+    }
+
+    .I2 {
+      grid-area: I2;
+    }
+
     .G2 {
       grid-area: G2;
+    }
+
+    .I3 {
+      grid-area: I3;
+    }
+
+    .I4 {
+      grid-area: I4;
     }
 
     .G3 {
       grid-area: G3;
     }
 
-    .Info1 {
-      grid-area: Info1;
-    }
-
-    .Info2 {
-      grid-area: Info2;
-    }
-
-    .Info3 {
-      grid-area: Info3;
-    }
-
-    .Info4 {
-      grid-area: Info4;
+    .G4 {
+      grid-area: G4;
     }
 
     div {
