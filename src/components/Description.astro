@@ -1,5 +1,5 @@
 <section>
-  <div class="Img"></div>
+  <img src="/img/Fresa2.webp" alt="" />
 
   <article>
     <h1>HydroGreen</h1>
@@ -16,6 +16,8 @@
       <li>Lorem ipsum dolor sit amet.</li>
       <li>Lorem ipsum dolor sit amet.</li>
     </ul>
+
+    <a href="/section/shop">Comprar fresas</a>
   </article>
 </section>
 
@@ -23,15 +25,13 @@
   section {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
 
-    .Img {
-      width: 50%;
+    img {
+      max-width: 50%;
+      aspect-ratio: 1000 / 667;
+      object-fit: contain;
       border-radius: var(--Border);
-      background-image: url(/img/Fresa2.webp);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: top right;
     }
   }
 
@@ -46,13 +46,43 @@
     border-radius: var(--Border);
 
     h1 {
-      font-size: 3em;
+      font-size: clamp(1.8rem, -0.2143rem + 3.5714vw, 3rem);
     }
 
     ul {
       list-style: disc;
       margin-left: 2rem;
       font-size: 1.1em;
+    }
+
+    a {
+      text-align: center;
+      padding: 0.5rem 1.5rem;
+      margin-top: 1rem;
+      min-width: max-content;
+      width: 100%;
+      font-size: 1em;
+      font-weight: 500;
+      border-radius: var(--Border);
+      color: var(--Green-Color-50);
+      background-color: var(--Green-Color-700);
+      transition: 0.2s ease-out;
+
+      &:hover {
+        background-color: var(--Green-Color-800);
+      }
+    }
+  }
+
+  @media (width < 1024px) {
+    section {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    article {
+      width: 80%;
+      padding: 0.5rem;
     }
   }
 </style>
