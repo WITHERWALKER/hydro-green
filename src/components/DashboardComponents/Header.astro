@@ -1,48 +1,10 @@
 ---
-import Avatar from "@/components/DashboardComponents/Avatar.astro";
-import Notification from "../Icons/Notification.astro";
+
 ---
 
-<header>
-  <div class="Logo">
-    <img src="/favicon.svg" alt="" />
-  </div>
-  <div class="Session">
-    <button>
-      <Notification />
-    </button>
-    <Avatar />
+<header class="flex items-center h-16 border-b border-sand bg-cream/80 backdrop-blur-sm px-4">
+  <div class="flex items-center gap-3">
+    <img src="/favicon.svg" alt="HydroGreen" class="w-8 h-8" />
+    <span class="font-display text-sm font-semibold text-ink">Panel de control</span>
   </div>
 </header>
-
-<style lang="scss">
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 4rem;
-    border-bottom: 2px solid var(--Green-Color-700);
-
-    .Logo {
-      display: flex;
-      justify-content: center;
-      width: 5rem;
-      height: 100%;
-      border-right: 2px solid var(--Green-Color-700);
-
-      img {
-        width: 2rem;
-      }
-    }
-
-    .Session {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-
-      button {
-        padding: 0.5rem;
-      }
-    }
-  }
-</style>

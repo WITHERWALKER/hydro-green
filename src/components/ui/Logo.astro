@@ -1,0 +1,20 @@
+---
+interface Props {
+  variant?: "light" | "dark";
+  class?: string;
+}
+
+const { variant = "light", class: className = "" } = Astro.props;
+
+const textColors = {
+  light: "text-ink",
+  dark: "text-cream",
+};
+---
+
+<a href="/" class={`flex items-center gap-2.5 ${className}`} aria-label="HydroGreen - Inicio">
+  <img src="/favicon.svg" alt="" class="w-6 h-6" aria-hidden="true" />
+  <span class={`font-display text-xl font-bold tracking-tight ${textColors[variant]}`}
+    >Hydro<span class="text-green-400">Green</span></span
+  >
+</a>

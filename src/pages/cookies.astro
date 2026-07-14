@@ -1,0 +1,189 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/sections/Header.astro";
+import Footer from "@/components/sections/Footer.astro";
+---
+
+<Layout
+  title="Política de Cookies"
+  description="Información sobre las cookies que utiliza HydroGreen para mejorar tu experiencia en nuestra plataforma."
+>
+  <Header />
+  <section class="min-h-screen py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-12">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-green-100/80 rounded-full mb-6">
+          <span class="text-xs font-medium text-green-800 uppercase tracking-wider">Legal</span>
+        </span>
+        <h1
+          class="font-display text-[clamp(2rem,0.5rem+4vw,3rem)] font-bold text-ink tracking-tight"
+        >
+          Política de Cookies
+        </h1>
+        <p class="mt-3 text-ink-light">Última actualización: enero 2026</p>
+      </div>
+
+      <div class="prose prose-green max-w-none flex flex-col gap-8 text-ink-light leading-relaxed">
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink mb-3">¿Qué son las cookies?</h2>
+          <p>
+            Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando
+            visita nuestro sitio web. Nos ayudan a mejorar su experiencia, recordar sus preferencias
+            y analizar cómo utiliza nuestra plataforma.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink mb-3">Cookies que utilizamos</h2>
+
+          <div class="mt-4 bg-cream border border-sand rounded-2xl overflow-hidden">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-green-50 border-b border-sand">
+                  <th class="text-left px-5 py-3 font-semibold text-ink">Cookie</th>
+                  <th class="text-left px-5 py-3 font-semibold text-ink">Propósito</th>
+                  <th class="text-left px-5 py-3 font-semibold text-ink">Duración</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-sand">
+                  <td class="px-5 py-3 text-ink font-medium">session_id</td>
+                  <td class="px-5 py-3">Mantener la sesión del usuario autenticada</td>
+                  <td class="px-5 py-3">Sesión</td>
+                </tr>
+                <tr class="border-b border-sand">
+                  <td class="px-5 py-3 text-ink font-medium">csrf_token</td>
+                  <td class="px-5 py-3"
+                    >Protección contra ataques de falsificación de solicitudes</td
+                  >
+                  <td class="px-5 py-3">Sesión</td>
+                </tr>
+                <tr class="border-b border-sand">
+                  <td class="px-5 py-3 text-ink font-medium">user_preferences</td>
+                  <td class="px-5 py-3"
+                    >Recordar configuración del dashboard y preferencias de visualización</td
+                  >
+                  <td class="px-5 py-3">1 año</td>
+                </tr>
+                <tr class="border-b border-sand">
+                  <td class="px-5 py-3 text-ink font-medium">language</td>
+                  <td class="px-5 py-3">Almacenar el idioma seleccionado por el usuario</td>
+                  <td class="px-5 py-3">1 año</td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-3 text-ink font-medium">analytics_id</td>
+                  <td class="px-5 py-3"
+                    >Análisis anónimo de uso de la plataforma para mejorar el servicio</td
+                  >
+                  <td class="px-5 py-3">2 años</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink mb-3">Cookies de terceros</h2>
+          <p>Utilizamos servicios de terceros que pueden establecer cookies en su dispositivo:</p>
+          <ul class="mt-3 ml-6 list-disc space-y-1">
+            <li>
+              <strong>Google Analytics</strong> — Para métricas de uso anónimas (opt-out disponible)
+            </li>
+            <li><strong>Google Fonts</strong> — Para cargar fuentes web de forma eficiente</li>
+            <li><strong>Stripe</strong> — Para el procesamiento seguro de pagos</li>
+          </ul>
+          <p class="mt-3">
+            Estos servicios tienen sus propias políticas de privacidad que puede consultar en sus
+            respectivos sitios web.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink mb-3">Gestión de cookies</h2>
+          <p>
+            Puede controlar y/o eliminar las cookies como desee. La mayoría de los navegadores le
+            permiten:
+          </p>
+          <ul class="mt-3 ml-6 list-disc space-y-1">
+            <li>Ver qué cookies están instaladas y eliminarlas individualmente</li>
+            <li>Bloquear cookies de terceros</li>
+            <li>Bloquear todas las cookies (esto puede afectar la funcionalidad del sitio)</li>
+            <li>Eliminar todas las cookies al cerrar el navegador</li>
+          </ul>
+          <p class="mt-3">
+            Para gestionar las cookies en su navegador, consulte la ayuda de su navegador
+            específico:
+          </p>
+          <ul class="mt-3 ml-6 list-disc space-y-1">
+            <li>
+              <a
+                href="https://support.google.com/chrome/answer/95647"
+                class="text-green-700 font-medium hover:text-green-800 transition-colors"
+                target="_blank"
+                rel="noopener">Google Chrome</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies"
+                class="text-green-700 font-medium hover:text-green-800 transition-colors"
+                target="_blank"
+                rel="noopener">Mozilla Firefox</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.apple.com/es/guide/safari/manage-cookies-sfri11471"
+                class="text-green-700 font-medium hover:text-green-800 transition-colors"
+                target="_blank"
+                rel="noopener">Safari</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
+                class="text-green-700 font-medium hover:text-green-800 transition-colors"
+                target="_blank"
+                rel="noopener">Microsoft Edge</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink mb-3">
+            Cookies esenciales vs. opcionales
+          </h2>
+          <p>
+            Las cookies esenciales (session_id, csrf_token) son necesarias para el funcionamiento
+            del sitio y no pueden desactivarse. Las cookies opcionales (user_preferences,
+            analytics_id) solo se activan con su consentimiento.
+          </p>
+          <p class="mt-3">
+            Al utilizar HydroGreen, usted acepta el uso de cookies esenciales. Para las cookies
+            opcionales, puede gestionar su preferencia desde el banner de cookies que se muestra en
+            su primera visita.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink mb-3">Actualizaciones</h2>
+          <p>
+            Esta Política de Cookies puede actualizarse periódicamente. Le notificaremos de cambios
+            significativos a través de la plataforma o por correo electrónico.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink mb-3">Contacto</h2>
+          <p>Si tiene preguntas sobre nuestra Política de Cookies:</p>
+          <p class="mt-2 text-ink font-medium">
+            privacidad@hydrogreen.com<br />HydroGreen Technologies S.A. de C.V.<br />Av.
+            Sostenibilidad 123, Ciudad de México, CP 01000
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>

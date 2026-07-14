@@ -1,0 +1,23 @@
+---
+interface Props {
+  variant?: "default" | "dark" | "outline";
+  hover?: boolean;
+  class?: string;
+}
+
+const { variant = "default", hover = true, class: className = "" } = Astro.props;
+
+const variants = {
+  default: "bg-surface border-sand",
+  dark: "bg-green-900/50 border-green-800/50",
+  outline: "bg-transparent border-sand",
+};
+
+const hoverStyles = hover ? "hover:border-green-300 hover:shadow-[var(--shadow-green-md)]" : "";
+---
+
+<div
+  class={`relative p-6 border rounded-2xl transition-all duration-300 ease-out ${variants[variant]} ${hoverStyles} ${className}`}
+>
+  <slot />
+</div>

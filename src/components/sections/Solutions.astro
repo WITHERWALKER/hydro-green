@@ -1,0 +1,48 @@
+---
+import SectionLabel from "@/components/ui/SectionLabel.astro";
+import AccordionItem from "@/components/ui/AccordionItem.astro";
+import Container from "@/components/ui/Container.astro";
+
+import { accordion } from "@/data/constants";
+
+import StrawberryVertical from "@/assets/strawberry.jpg";
+---
+
+<section id="solutions" class="py-32">
+  <Container>
+    <header class="grid grid-cols-2 gap-6">
+      <p class="flex items-end max-w-lg text-neutral-600 text-balance">
+        Combinamos ingeniería agrícola y tecnología hidropónica para optimizar el uso del agua,
+        mejorar la calidad del cultivo y ofrecer un control preciso en cada etapa de producción.
+      </p>
+
+      <div>
+        <SectionLabel title="Tecnología y Soluciones" />
+
+        <h2 class="mt-6 max-w-2xl font-semibold text-5xl leading-11">
+          Innovación aplicada al cultivo hidropónico de fresas.
+        </h2>
+      </div>
+    </header>
+
+    <div class="mt-20 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
+      <div>
+        <img
+          src={StrawberryVertical.src}
+          alt="Sistema hidropónico para cultivo de fresas"
+          class="aspect-4/5 w-full object-cover rounded-xl"
+        />
+      </div>
+
+      <div>
+        {
+          accordion.map((item, index) => (
+            <AccordionItem number={item.number} title={item.title} open={index === 0}>
+              {item.description}
+            </AccordionItem>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</section>

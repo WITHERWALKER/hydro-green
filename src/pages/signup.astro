@@ -1,141 +1,54 @@
 ---
-import Input from "@/components/Input.astro";
 import Layout from "@/layouts/Layout.astro";
+import Input from "@/components/Input.astro";
 ---
 
-<Layout>
-  <div class="Container">
-    <div class="Form">
-      <img src="/favicon.svg" alt="" />
-      <div class="Description">
-        <h1>Comienza tu <span>viaje aqui!</span></h1>
-        <p>Únete ahora y comienza a explorar.</p>
-      </div>
-
-      <form action="/api/auth/register" method="post">
-        <Input type="text" placeholder="Nombre" name="name" />
-        <Input type="email" placeholder="Correo electronico" name="email" />
-        <Input type="password" placeholder="Contraseña" name="password" />
-
-        <button type="submit">Sign Up</button>
-      </form>
+<Layout
+  title="Crear cuenta"
+  description="Crea tu cuenta HydroGreen y comienza a cultivar fresas con tecnología hidropónica inteligente."
+>
+  <div class="flex min-h-screen">
+    <div class="hidden lg:block lg:w-1/2 relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent to-cream/20 z-10"></div>
+      <img
+        src="/img/Fresa1.webp"
+        alt="Fresas frescas de cultivo hidropónico"
+        loading="eager"
+        class="w-full h-full object-cover"
+      />
     </div>
 
-    <img src="/img/Fresa1.jpg" alt="" />
+    <div class="flex-1 flex items-center justify-center p-8 lg:p-16">
+      <div class="w-full max-w-md">
+        <div class="mb-10">
+          <img src="/favicon.svg" alt="HydroGreen" class="w-10 h-10 mb-8" />
+          <h1 class="font-display text-4xl font-bold text-ink mb-3 tracking-tight">
+            Comienza tu <span class="text-green-700">viaje</span>
+          </h1>
+          <p class="text-ink-light text-lg">Únete ahora y comienza a explorar.</p>
+        </div>
+
+        <form action="#" method="post" class="flex flex-col gap-5">
+          <Input type="text" placeholder="Nombre" name="name" />
+          <Input type="email" placeholder="Correo electrónico" name="email" />
+          <Input type="password" placeholder="Contraseña" name="password" />
+
+          <button
+            type="submit"
+            class="mt-4 w-full py-4 bg-green-700 text-cream rounded-full text-base font-semibold hover:bg-green-800 hover:shadow-[var(--shadow-green-btn)] hover:scale-[1.02] active:scale-[0.97] transition-all duration-300"
+          >
+            Crear cuenta
+          </button>
+        </form>
+
+        <p class="mt-8 text-center text-sm text-ink-light">
+          ¿Ya tienes cuenta? <a
+            href="/signin"
+            class="text-green-700 font-semibold hover:text-green-800 transition-colors"
+            >Inicia sesión</a
+          >
+        </p>
+      </div>
+    </div>
   </div>
 </Layout>
-
-<style lang="scss">
-  body {
-    background-color: var(--Bg-Color);
-  }
-
-  .Container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    align-items: center;
-
-    .Form {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      margin: 0 auto;
-      padding: 3rem;
-      height: 37.5rem;
-      width: 28.125rem;
-      border-radius: var(--Border);
-      background: var(--Bg-Gradient);
-      outline: 3px solid var(--Green-Color-700);
-
-      img {
-        width: 2rem;
-        height: auto;
-        margin: 0 auto;
-      }
-
-      .Description {
-        margin-bottom: 1.75rem;
-        width: 100%;
-
-        h1 {
-          font-size: 2em;
-          margin-bottom: 0.5rem;
-
-          span {
-            font-weight: 600;
-            color: var(--Green-Color-700);
-          }
-        }
-
-        p {
-          color: var(--Grey-Color);
-        }
-      }
-
-      button {
-        margin: 3rem auto 0;
-        display: flex;
-        justify-content: center;
-        padding: 0.7rem;
-        width: 60%;
-        background-color: var(--Green-Color-700);
-        color: var(--Green-Color-50);
-        border-radius: var(--Border);
-        font-size: 1.1em;
-        font-weight: 500;
-
-        &:hover {
-          background-color: var(--Green-Color-800);
-          transition: 0.2s ease-out;
-        }
-      }
-    }
-  }
-
-  img {
-    width: 50%;
-    height: 100vh;
-    object-fit: cover;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  // Media Queries ------------------------------------------------ */
-  @media (width <= 1024px) {
-    .Container {
-      display: grid;
-      justify-items: center;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-      grid-template-areas: "Form";
-      width: auto;
-
-      .Form {
-        padding: 1.5rem;
-        width: 24rem;
-        height: 33rem;
-        border-radius: var(--Border);
-
-        .Description {
-          font-size: 0.9rem;
-        }
-
-        .Divisor {
-          p {
-            font-size: 0.8em;
-          }
-        }
-      }
-
-      img {
-        display: none;
-      }
-    }
-  }
-</style>

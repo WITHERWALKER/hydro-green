@@ -1,111 +1,211 @@
 ---
 import DashboardLayout from "@/layouts/DashboardLayout.astro";
-import Card from "@/components/DashboardComponents/Card.astro";
-import { app } from "../firebase/server";
-import { getAuth } from "firebase-admin/auth";
-const auth = getAuth(app);
 
-/* Verificar la sesión actual */
-if (!Astro.cookies.has("session")) {
-  return Astro.redirect("/signin");
+const phData = [6.1, 6.3, 6.0, 6.2, 6.4, 6.3, 6.1, 6.2, 6.5, 6.3, 6.2, 6.4];
+const tempData = [21.5, 22.0, 22.8, 23.1, 22.5, 21.9, 22.3, 22.7, 23.0, 22.4, 22.1, 22.6];
+const humData = [68, 70, 72, 71, 69, 73, 75, 74, 72, 70, 71, 73];
+const nutData = [
+  { label: "Nitrógeno", abbr: "N", value: 82 },
+  { label: "Fósforo", abbr: "P", value: 65 },
+  { label: "Potasio", abbr: "K", value: 74 },
+  { label: "Calcio", abbr: "Ca", value: 58 },
+  { label: "Magnesio", abbr: "Mg", value: 45 },
+];
+
+function curve(data: number[], min: number, max: number, w: number, h: number) {
+  const pts = data.map((v, i) => ({
+    x: (i / (data.length - 1)) * w,
+    y: h - ((v - min) / (max - min)) * h,
+  }));
+  let d = `M${pts[0].x.toFixed(1)},${pts[0].y.toFixed(1)}`;
+  for (let i = 1; i < pts.length; i++) {
+    const p = pts[i - 1];
+    const c = pts[i];
+    const mx = (p.x + c.x) / 2;
+    d += ` C${mx.toFixed(1)},${p.y.toFixed(1)} ${mx.toFixed(1)},${c.y.toFixed(1)} ${c.x.toFixed(1)},${c.y.toFixed(1)}`;
+  }
+  return d;
 }
-const sessionCookie = Astro.cookies.get("session").value;
-const decodedCookie = await auth.verifySessionCookie(sessionCookie);
-const user = await auth.getUser(decodedCookie.uid);
 
-if (!user) {
-  return Astro.redirect("/signin");
+function fill(data: number[], min: number, max: number, w: number, h: number) {
+  return `${curve(data, min, max, w, h)} L${w},${h} L0,${h} Z`;
+}
+
+function lastVal(arr: number[]) {
+  return arr[arr.length - 1];
 }
 ---
 
 <DashboardLayout>
-  <h2>Informació en tiempo real</h2>
-  <section>
-    <div class="G1 Grafic"></div>
+  <div class="min-h-full p-5 sm:p-8 lg:p-10">
+    <header class="mb-10">
+      <h1 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">Dashboard</h1>
+      <p class="text-sm text-ink-light mt-1.5">Datos en tiempo real de tu cultivo.</p>
+    </header>
 
-    <div class="G2 Grafic"></div>
-
-    <div class="G3 Grafic"></div>
-
-    <div class="G4 Grafic"></div>
-
-    <div class="I1">
-      <Card title="Strawberry" subtitle="Strawberry" info="Documents: 7" />
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+      <div class="relative rounded-2xl bg-green-700 text-cream p-5 overflow-hidden">
+        <p class="text-[11px] text-cream/60 uppercase tracking-wider font-medium mb-2">pH</p>
+        <p class="text-3xl sm:text-4xl font-bold">6.2</p>
+        <p class="text-[11px] text-cream/50 mt-1.5">+0.1 vs ayer</p>
+      </div>
+      <div class="relative rounded-2xl bg-cream border border-sand p-5 overflow-hidden">
+        <p class="text-[11px] text-ink-muted uppercase tracking-wider font-medium mb-2">
+          Temperatura
+        </p>
+        <p class="text-3xl sm:text-4xl font-bold text-ink">22.4°</p>
+        <p class="text-[11px] text-green-600 mt-1.5">Óptimo</p>
+      </div>
+      <div class="relative rounded-2xl bg-cream border border-sand p-5 overflow-hidden">
+        <p class="text-[11px] text-ink-muted uppercase tracking-wider font-medium mb-2">Humedad</p>
+        <p class="text-3xl sm:text-4xl font-bold text-ink">
+          72<span class="text-lg font-medium text-ink-light">%</span>
+        </p>
+        <p class="text-[11px] text-green-600 mt-1.5">+3% vs ayer</p>
+      </div>
+      <div class="relative rounded-2xl bg-cream border border-sand p-5 overflow-hidden">
+        <p class="text-[11px] text-ink-muted uppercase tracking-wider font-medium mb-2">
+          Conductividad
+        </p>
+        <p class="text-3xl sm:text-4xl font-bold text-ink">1.8</p>
+        <p class="text-[11px] text-ink-muted mt-1.5">mS/cm</p>
+      </div>
     </div>
 
-    <div class="I2">
-      <Card title="Strawberry" subtitle="Strawberry" info="Documents: 10" />
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-4">
+      <div class="lg:col-span-3 rounded-2xl bg-cream border border-sand p-5 sm:p-6">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <h2 class="text-base font-semibold text-ink">Nivel de pH</h2>
+            <p class="text-xs text-ink-light mt-0.5">Últimas 24 horas</p>
+          </div>
+          <div class="text-right">
+            <p class="text-2xl font-bold text-green-700">6.2</p>
+            <p class="text-[10px] text-ink-muted">promedio</p>
+          </div>
+        </div>
+        <svg viewBox="0 0 400 100" class="w-full h-auto" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="phFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#255c2a" stop-opacity="0.12"></stop>
+              <stop offset="100%" stop-color="#255c2a" stop-opacity="0"></stop>
+            </linearGradient>
+          </defs>
+          <path d={fill(phData, 5.5, 7.0, 400, 100)} fill="url(#phFill)"></path>
+          <path
+            d={curve(phData, 5.5, 7.0, 400, 100)}
+            fill="none"
+            stroke="#255c2a"
+            stroke-width="1.5"></path>
+          <circle
+            cx="400"
+            cy={100 - ((lastVal(phData) - 5.5) / 1.5) * 100}
+            r="4"
+            fill="#255c2a"
+            stroke="#fff"
+            stroke-width="2"></circle>
+        </svg>
+        <div class="flex justify-between mt-3 text-[10px] text-ink-muted">
+          <span>6:00</span>
+          <span>12:00</span>
+          <span>18:00</span>
+          <span>Ahora</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 rounded-2xl bg-cream border border-sand p-5 sm:p-6">
+        <div class="mb-6">
+          <h2 class="text-base font-semibold text-ink">Nutrientes</h2>
+          <p class="text-xs text-ink-light mt-0.5">Niveles en solución</p>
+        </div>
+        <div class="flex flex-col gap-3">
+          {
+            nutData.map((n) => (
+              <div class="flex items-center gap-3">
+                <span class="text-[11px] text-ink-muted w-6 text-right font-medium">{n.abbr}</span>
+                <div class="flex-1 h-2 bg-sand/50 rounded-full overflow-hidden">
+                  <div class="h-full bg-green-600 rounded-full" style={`width: ${n.value}%`} />
+                </div>
+                <span class="text-[11px] font-semibold text-ink w-8">{n.value}%</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
 
-    <div class="I3">
-      <Card title="Strawberry" subtitle="Strawberry" info="Documents: 3" />
-    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="rounded-2xl bg-cream border border-sand p-5 sm:p-6">
+        <div class="flex items-start justify-between mb-5">
+          <div>
+            <h2 class="text-base font-semibold text-ink">Temperatura</h2>
+            <p class="text-xs text-ink-light mt-0.5">Agua · 24h</p>
+          </div>
+          <div class="text-right">
+            <p class="text-2xl font-bold text-orange-500">22.4°</p>
+            <p class="text-[10px] text-ink-muted">actual</p>
+          </div>
+        </div>
+        <svg viewBox="0 0 200 80" class="w-full h-auto" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="tFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#e07a3a" stop-opacity="0.1"></stop>
+              <stop offset="100%" stop-color="#e07a3a" stop-opacity="0"></stop>
+            </linearGradient>
+          </defs>
+          <path d={fill(tempData, 20, 25, 200, 80)} fill="url(#tFill)"></path>
+          <path d={curve(tempData, 20, 25, 200, 80)} fill="none" stroke="#e07a3a" stroke-width="1.5"
+          ></path>
+          <circle
+            cx="200"
+            cy={80 - ((lastVal(tempData) - 20) / 5) * 80}
+            r="3.5"
+            fill="#e07a3a"
+            stroke="#fff"
+            stroke-width="2"></circle>
+        </svg>
+        <div class="flex justify-between mt-3 text-[10px] text-ink-muted">
+          <span>6:00</span>
+          <span>Ahora</span>
+        </div>
+      </div>
 
-    <div class="I4">
-      <Card title="Strawberry" subtitle="Strawberry" info="Documents: 50" />
+      <div class="rounded-2xl bg-cream border border-sand p-5 sm:p-6">
+        <div class="flex items-start justify-between mb-5">
+          <div>
+            <h2 class="text-base font-semibold text-ink">Humedad</h2>
+            <p class="text-xs text-ink-light mt-0.5">Ambiente · 24h</p>
+          </div>
+          <div class="text-right">
+            <p class="text-2xl font-bold text-blue-500">
+              72<span class="text-sm font-medium">%</span>
+            </p>
+            <p class="text-[10px] text-ink-muted">actual</p>
+          </div>
+        </div>
+        <svg viewBox="0 0 200 80" class="w-full h-auto" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="hFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.1"></stop>
+              <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"></stop>
+            </linearGradient>
+          </defs>
+          <path d={fill(humData, 60, 80, 200, 80)} fill="url(#hFill)"></path>
+          <path d={curve(humData, 60, 80, 200, 80)} fill="none" stroke="#3b82f6" stroke-width="1.5"
+          ></path>
+          <circle
+            cx="200"
+            cy={80 - ((lastVal(humData) - 60) / 20) * 80}
+            r="3.5"
+            fill="#3b82f6"
+            stroke="#fff"
+            stroke-width="2"></circle>
+        </svg>
+        <div class="flex justify-between mt-3 text-[10px] text-ink-muted">
+          <span>6:00</span>
+          <span>Ahora</span>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 </DashboardLayout>
-
-<style lang="scss">
-  h2 {
-    font-size: 1.5em;
-    padding: 1.5rem 18rem;
-    color: var(--Black-Color);
-  }
-
-  section {
-    height: calc(100vh - 12rem);
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 1rem;
-    width: 70%;
-    margin: 0 auto;
-    grid-template-areas:
-      "G1 G1 G1 G2 G2 G3 G3"
-      "G1 G1 G1 G2 G2 G3 G3"
-      "I1 I1 I3 I3 G4 G4 G4"
-      "I2 I2 I4 I4 G4 G4 G4";
-
-    .Grafic {
-      background-color: var(--Green-Color-200);
-    }
-
-    .G1 {
-      grid-area: G1;
-    }
-
-    .I1 {
-      grid-area: I1;
-    }
-
-    .I2 {
-      grid-area: I2;
-    }
-
-    .G2 {
-      grid-area: G2;
-    }
-
-    .I3 {
-      grid-area: I3;
-    }
-
-    .I4 {
-      grid-area: I4;
-    }
-
-    .G3 {
-      grid-area: G3;
-    }
-
-    .G4 {
-      grid-area: G4;
-    }
-
-    div {
-      border-radius: var(--Border);
-    }
-  }
-</style>

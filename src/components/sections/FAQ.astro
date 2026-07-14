@@ -1,0 +1,34 @@
+---
+import { ChevronDown } from "@lucide/astro";
+import Container from "@/components/ui/Container.astro";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+import { faq } from "@/data/faq";
+---
+
+<section id="faq" class="py-24 px-5 md:px-6 lg:px-8 bg-surface">
+  <Container>
+    <SectionTitle
+      badge="Preguntas frecuentes"
+      title="¿Tienes dudas?"
+      description="Resolvemos las preguntas más comunes sobre nuestros sistemas hidropónicos."
+    />
+
+    <div class="max-w-3xl mx-auto">
+      {
+        faq.map((item) => (
+          <details class="group border-b border-sand">
+            <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none font-display font-semibold text-ink text-lg select-none">
+              {item.question}
+              <span class="w-6 h-6 shrink-0 flex items-center justify-center transition-transform duration-300 group-open:rotate-180 text-ink-muted">
+                <ChevronDown class="w-4 h-4" />
+              </span>
+            </summary>
+            <div class="overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] max-h-0 group-open:max-h-[500px] opacity-0 group-open:opacity-100">
+              <div class="pb-6 text-ink-light leading-relaxed">{item.answer}</div>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </Container>
+</section>

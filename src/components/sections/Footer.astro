@@ -1,0 +1,100 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Logo from "@/components/ui/Logo.astro";
+import { navigation } from "@/data/constants";
+---
+
+<footer class="relative overflow-hidden bg-[#141414] text-white">
+  <!-- Background Brand -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-x-0 top-0 flex justify-center overflow-hidden"
+  >
+    <span
+      class="select-none text-[7rem] font-semibold uppercase tracking-[0.25em] text-white/5 blur-[2px] md:text-[10rem] lg:text-[14rem]"
+    >
+      HYDROGREEN
+    </span>
+  </div>
+
+  <Container class="relative py-24 lg:py-32">
+    <!-- Main -->
+    <div class="grid gap-20 lg:grid-cols-[1.8fr_1fr]">
+      <!-- Brand -->
+      <div class="max-w-xl">
+        <Logo variant="dark" />
+
+        <p class="mt-8 text-lg leading-8 text-neutral-400">
+          Diseñamos sistemas hidropónicos especializados en el cultivo de fresas, combinando
+          ingeniería, tecnología y sostenibilidad para impulsar una producción más eficiente.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-8 text-sm text-neutral-500">
+          <a href="#" class="transition-colors hover:text-white"> Instagram </a>
+
+          <a href="#" class="transition-colors hover:text-white"> LinkedIn </a>
+
+          <a href="#" class="transition-colors hover:text-white"> Facebook </a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="grid grid-cols-2 gap-12">
+        <div>
+          <h3 class="mb-6 text-sm font-medium uppercase tracking-widest text-neutral-500">
+            Navegación
+          </h3>
+
+          <ul class="space-y-4">
+            {
+              navigation.footer.product.map((item) => (
+                <li>
+                  <a href={item.href} class="text-neutral-400 transition-colors hover:text-white">
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="mb-6 text-sm font-medium uppercase tracking-widest text-neutral-500">
+            Contacto
+          </h3>
+
+          <ul class="space-y-4 text-neutral-400">
+            <li>
+              <a href="mailto:contacto@hydrogreen.com" class="transition-colors hover:text-white">
+                contacto@hydrogreen.com
+              </a>
+            </li>
+
+            <li>Torreón, Coahuila</li>
+
+            <li>
+              <a href="tel:+528711234567" class="transition-colors hover:text-white">
+                +52 (871) 123 4567
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div
+      class="mt-24 flex flex-col gap-6 border-t border-white/10 pt-8 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between"
+    >
+      <p>© 2026 HydroGreen. Todos los derechos reservados.</p>
+
+      <nav class="flex flex-wrap gap-6">
+        <a href="/privacidad" class="transition-colors hover:text-white"> Privacidad </a>
+
+        <a href="/terminos" class="transition-colors hover:text-white"> Términos </a>
+
+        <a href="/cookies" class="transition-colors hover:text-white"> Cookies </a>
+      </nav>
+    </div>
+  </Container>
+</footer>

@@ -1,0 +1,43 @@
+---
+import { Wrench, Activity, TrendingUp, Cherry } from "@lucide/astro";
+import Container from "@/components/ui/Container.astro";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+import { howItWorks } from "@/data/howItWorks";
+
+const iconMap: Record<string, any> = { Wrench, Activity, TrendingUp, Cherry };
+---
+
+<section id="proceso" class="py-24 px-5 md:px-6 lg:px-8 bg-surface">
+  <Container>
+    <SectionTitle
+      badge="Cómo funciona"
+      title="De la instalación a la cosecha"
+      description="Un proceso simple y automatizado para que te enfoques en lo que importa: cultivar fresas excepcionales."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+      <div
+        class="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-green-200 via-green-400 to-green-200"
+      >
+      </div>
+
+      {
+        howItWorks.map((item) => {
+          const Icon = iconMap[item.icon];
+          return (
+            <div class="relative flex flex-col items-center text-center group">
+              <div class="relative z-10 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 transition-all duration-300 ease-out group-hover:bg-green-700 text-green-700 group-hover:text-cream">
+                <Icon class="w-7 h-7" />
+              </div>
+              <span class="text-xs font-bold text-green-600 uppercase tracking-widest mb-2">
+                Paso {item.step}
+              </span>
+              <h3 class="font-display text-xl font-semibold text-ink mb-3">{item.title}</h3>
+              <p class="text-ink-light leading-relaxed max-w-xs">{item.description}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Container>
+</section>
