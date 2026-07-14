@@ -1,0 +1,53 @@
+---
+import Container from "../ui/Container.astro";
+import SectionLabel from "../ui/SectionLabel.astro";
+import StrawberryVertical from "@/assets/strawberry.jpg";
+---
+
+<section id="features" class="py-32">
+  <Container>
+    <SectionLabel title="Nuestras soluciones" />
+
+    <h2 class="mt-6 max-w-2xl font-semibold text-4xl leading-10">
+      Soluciones hidropónicas diseñadas para maximizar la productividad del cultivo.
+    </h2>
+
+    <div class="mt-14 grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-6 items-stretch">
+      <!-- Left -->
+      <img
+        src={StrawberryVertical.src}
+        alt="Cultivo hidropónico"
+        class="h-full w-full object-cover rounded-xl"
+      />
+
+      <!-- Featured -->
+      <article class="relative min-h-135 overflow-hidden">
+        <img
+          src={StrawberryVertical.src}
+          alt="Sistema hidropónico para fresas"
+          class="absolute inset-0 h-full w-full object-cover rounded-xl"
+        />
+
+        <div class="absolute bottom-6 left-6 right-6 bg-white p-8 shadow-sm rounded-lg">
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-medium">
+            Torreón, Coahuila
+          </span>
+
+          <h3 class="mt-4 text-2xl">Sistema hidropónico para producción de fresas</h3>
+
+          <p class="mt-1 text-neutral-600 leading-7">
+            Diseñado para optimizar el uso del agua y los nutrientes, nuestro sistema permite
+            obtener cultivos más uniformes.
+          </p>
+        </div>
+      </article>
+
+      <!-- Right -->
+      <img
+        src={StrawberryVertical.src}
+        alt="Invernadero hidropónico"
+        class="h-full w-full object-cover rounded-xl"
+      />
+    </div>
+  </Container>
+</section>

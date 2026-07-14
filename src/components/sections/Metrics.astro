@@ -1,0 +1,21 @@
+---
+import Container from "@/components/ui/Container.astro";
+import { metrics } from "@/data/metrics";
+---
+
+<section class="py-24 px-5 md:px-6 lg:px-8">
+  <Container>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {
+        metrics.map((metric) => (
+          <div class="text-center">
+            <span class="block text-[clamp(2.5rem,1vw+2rem,4rem)] font-display font-bold text-ink leading-none">
+              {metric.value}
+            </span>
+            <span class="text-sm text-ink-muted mt-2 block">{metric.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</section>
