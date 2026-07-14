@@ -1,27 +1,28 @@
 ---
-import Bento from "@/components/Bento.astro";
-import Description from "@/components/Description.astro";
-import Footer from "@/components/Footer.astro";
-import Header from "@/components/Header.astro";
-import Hero from "@/components/Hero.astro";
-import Layout from "../layouts/Layout.astro";
-import Points from "@/components/Points.astro";
+import Layout from "@/layouts/Layout.astro";
+import Footer from "@/components/sections/Footer.astro";
+import Hero from "@/components/sections/Hero.astro";
+import About from "@/components/sections/About.astro";
+import Feature from "@/components/sections/Feature.astro";
+import Technology from "@/components/sections/Solutions.astro";
+import CTA from "@/components/sections/CTA.astro";
 ---
 
-<Layout>
-  <main>
-    <Header />
+<Layout
+  title="Hidroponía Inteligente"
+  description="HydroGreen - Cultiva fresas de forma inteligente con tecnología hidropónica de última generación. Monitoreo en tiempo real, 98% eficiencia hídrica."
+>
+  <main id="main-content">
     <Hero />
-    <Points />
-    <Description />
-    <Bento />
-    <Footer />
+    <About />
+    <Feature />
+    <Technology />
+    <CTA />
   </main>
+  <Footer />
 </Layout>
 
-<style>
-  main {
-    width: 90%;
-    margin: 0 auto;
-  }
-</style>
+<script>
+  import { initScrollReveal } from "@/utils/scrollReveal";
+  initScrollReveal();
+</script>

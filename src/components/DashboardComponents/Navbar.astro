@@ -1,73 +1,13 @@
 ---
-import Dashboard from "../Icons/Dashboard.astro";
-import Settings from "../Icons/Settings.astro";
+import { LayoutDashboard } from "@lucide/astro";
 ---
 
-<nav>
-  <ul>
-    <li>
-      <a href="/dashboard">
-        <span class="Tooltip">Panel</span>
-        <Dashboard />
-      </a>
-    </li>
-    <li>
-      <a href="">
-        <span class="Tooltip">Ajustes</span>
-        <Settings />
+<nav class="py-4 w-20 h-[calc(100vh-4rem)] border-r border-sand flex flex-col items-center">
+  <ul class="flex flex-col items-center gap-3">
+    <li class="rounded-xl bg-green-700 text-cream">
+      <a href="/dashboard" class="block p-3">
+        <LayoutDashboard class="w-5 h-5" />
       </a>
     </li>
   </ul>
 </nav>
-
-<style lang="scss">
-  nav {
-    padding: 1rem 0;
-    width: 5rem;
-    height: calc(100vh - 4rem);
-    border-right: 2px solid var(--Green-Color-700);
-  }
-
-  ul {
-    display: flex;
-    flex-flow: column wrap;
-    align-content: center;
-    gap: 1rem;
-
-    li {
-      border-radius: var(--Border);
-      background-color: var(--Green-Color-500);
-      color: var(--Green-Color-50);
-
-      &:hover {
-        background-color: var(--Green-Color-400);
-        transition: 0.3s ease-out;
-      }
-    }
-  }
-
-  a {
-    position: relative;
-    display: block;
-    padding: 0.6rem;
-  }
-
-  .Tooltip {
-    position: absolute;
-    top: 0%;
-    left: 170%;
-    padding: 0.6em 0.7rem;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: 0.3s ease-out;
-    border-radius: var(--Border);
-    background: var(--Green-Color-400);
-  }
-
-  a:hover .Tooltip {
-    opacity: 0.5;
-    visibility: visible;
-    pointer-events: auto;
-  }
-</style>
