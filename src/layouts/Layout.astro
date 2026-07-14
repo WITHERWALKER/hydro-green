@@ -1,51 +1,71 @@
 ---
-import "@fontsource-variable/outfit";
-import "@fontsource-variable/dm-sans";
+import "@fontsource-variable/inter";
+import "@fontsource/instrument-serif";
+import "../styles/global.css";
 
-import { ViewTransitions } from "astro:transitions";
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = "/img/og-default.png",
+  canonical = "https://hydrogreen.mx",
+} = Astro.props;
+
+const siteTitle = `${title} | HydroGreen`;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#255c2a" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="HydroGreen" />
+    <meta property="og:locale" content="es_MX" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <ViewTransitions />
-    <title>HydroGreen</title>
-  </head>
-  <body>
-    <slot />
-    <style is:global>
-      @import url("https://fonts.googleapis.com/css2?family=Arya:wght@400;700&display=swap");
+    <title>{siteTitle}</title>
 
-      :root {
-        --Green-Color-50: #f5f8f5;
-        --Green-Color-100: #e8f0e8;
-        --Green-Color-200: #d1e1d1;
-        --Green-Color-300: #adc8ad;
-        --Green-Color-400: #80a880;
-        --Green-Color-500: #557c55;
-        --Green-Color-600: #4a6f4a;
-        --Green-Color-700: #3c593c;
-        --Green-Color-800: #334833;
-        --Green-Color-900: #2b3c2c;
-        --Green-Color-950: #141f15;
-
-        --Bg-Gradient: linear-gradient(220.55deg, #fff6eb 0%, #dfd1c5 100%);
-        --Black-Color: #212121;
-        --Bg-Color: #eeeeee;
-        --Border: 0.5rem;
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "HydroGreen",
+        "url": "https://hydrogreen.mx",
+        "logo": "https://hydrogreen.mx/favicon.svg",
+        "description": "Hidroponía inteligente para cultivo de fresas de alta calidad",
+        "sameAs": []
       }
+    </script>
 
-      html {
-        font-family: "Outfit Variable", sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: var(--Bg-Color);
+    <style>
+      @view-transition {
+        navigation: auto;
       }
     </style>
+  </head>
+  <body class="min-h-dvh">
+    <a href="#main-content" class="skip-to-content">Saltar al contenido principal</a>
+    <slot />
   </body>
 </html>
