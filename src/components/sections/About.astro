@@ -7,27 +7,41 @@ import StrawberryVertical from "@/assets/strawberry-basket.webp";
 import { ArrowUpRight } from "@lucide/astro";
 ---
 
-<section id="about" class="py-32">
+<section id="about" class="py-16 sm:py-20 lg:py-28 xl:py-32 overflow-hidden">
   <Container>
-    <div class="grid grid-cols-[auto_1fr_auto] items-end gap-10">
-      <div class="flex flex-col justify-between self-stretch">
+    <div
+      class="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-8 lg:gap-6 xl:gap-10 items-start lg:items-end"
+    >
+      <!-- Left column - desktop only -->
+      <div class="hidden lg:flex flex-col justify-between self-stretch gap-10">
         <SectionLabel title="Sobre nosotros" />
 
         <img
           src={Strawberry.src}
           alt="Cultivo hidropónico de fresas"
-          class="w-52 aspect-square rounded-xl object-cover"
+          class="w-44 xl:w-52 aspect-square rounded-xl object-cover shrink-0"
+          width="208"
+          height="208"
+          loading="lazy"
         />
       </div>
 
-      <div class="flex flex-col gap-6 pl-10">
-        <h2 class="text-2xl leading-tight text-balance font-medium text-neutral-950">
+      <!-- Center content -->
+      <div class="flex flex-col gap-5 sm:gap-6 lg:pl-6 xl:pl-10 order-1 lg:order-0">
+        <!-- Mobile label -->
+        <div class="lg:hidden">
+          <SectionLabel title="Sobre nosotros" />
+        </div>
+
+        <h2
+          class="text-[clamp(1.35rem,4vw,1.7rem)] sm:text-2xl lg:text-[1.7rem] xl:text-2xl leading-snug sm:leading-tight text-balance font-medium text-neutral-950"
+        >
           Nuestra misión es transformar el cultivo de fresas mediante sistemas hidropónicos de
           precisión que optimizan los recursos, mejoran la calidad del fruto y promueven una
           producción más sostenible.
         </h2>
 
-        <p class="text-neutral-600 text-balance">
+        <p class="text-[15px] sm:text-base text-neutral-600 text-pretty leading-relaxed">
           Diseñamos soluciones hidropónicas que combinan ingeniería agrícola, automatización y
           monitoreo inteligente para ayudar a los productores a obtener cultivos más uniformes y
           eficientes. Desde el diseño del sistema hasta su implementación y seguimiento,
@@ -37,18 +51,42 @@ import { ArrowUpRight } from "@lucide/astro";
 
         <a
           href="/contacto"
-          class="flex gap-1 bg-[#77ce08] px-5 py-3 rounded-xl text-ink font-medium w-fit"
+          class="inline-flex items-center justify-center gap-1.5 bg-[#77ce08] hover:bg-[#6ab807] active:bg-[#5da506] px-6 py-3 sm:py-3.5 rounded-xl text-ink font-medium w-full sm:w-fit transition-colors"
         >
           Leer más
-          <ArrowUpRight />
+          <ArrowUpRight class="size-4" />
         </a>
       </div>
 
-      <div>
+      <!-- Right column - desktop only -->
+      <div class="hidden lg:block shrink-0">
         <img
           src={StrawberryVertical.src}
           alt="Sistema hidropónico"
-          class="w-64 h-auto rounded-xl object-cover"
+          class="w-48 xl:w-64 h-auto aspect-3/4 xl:aspect-auto rounded-xl object-cover"
+          width="256"
+          height="340"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Mobile images - visible only on < lg -->
+      <div class="lg:hidden grid grid-cols-2 gap-4 sm:gap-6 order-2">
+        <img
+          src={Strawberry.src}
+          alt="Cultivo hidropónico de fresas"
+          class="w-full aspect-square rounded-xl object-cover"
+          width="300"
+          height="300"
+          loading="lazy"
+        />
+        <img
+          src={StrawberryVertical.src}
+          alt="Sistema hidropónico"
+          class="w-full h-full min-h-45 rounded-xl object-cover"
+          width="300"
+          height="380"
+          loading="lazy"
         />
       </div>
     </div>

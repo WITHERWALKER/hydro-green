@@ -15,7 +15,7 @@ import { testimonials } from "@/data/testimonials";
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
       {
         testimonials.map((testimonial) => (
-          <article class="group relative p-6 sm:p-8 bg-surface border border-sand rounded-2xl transition-all duration-500 hover:border-green-300 hover:shadow-[var(--shadow-green-lg)] hover:-translate-y-1">
+          <article class="group relative p-6 sm:p-8 bg-surface border border-sand rounded-2xl transition-all duration-500 hover:border-green-300 hover:shadow-(--shadow-green-lg) hover:-translate-y-1">
             <p class="text-sm sm:text-base text-ink-light leading-relaxed mb-6">
               "{testimonial.text}"
             </p>

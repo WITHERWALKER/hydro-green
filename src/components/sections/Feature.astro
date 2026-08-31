@@ -6,38 +6,57 @@ import StrawberryCenter from "@/assets/strawberry-planted.webp";
 import StrawberryRight from "@/assets/strawberry-hands-down.webp";
 ---
 
-<section id="features" class="py-32">
+<section id="features" class="py-16 sm:py-20 lg:py-28 xl:py-32">
   <Container>
     <SectionLabel title="Nuestras soluciones" />
 
-    <h2 class="mt-6 max-w-2xl font-semibold text-4xl leading-10">
+    <h2
+      class="mt-4 sm:mt-6 max-w-2xl font-semibold tracking-tight text-balance
+             text-[clamp(1.6rem,5vw,2.25rem)] sm:text-3xl lg:text-4xl leading-tight sm:leading-none lg:leading-10"
+    >
       Soluciones hidropónicas diseñadas para maximizar la productividad del cultivo.
     </h2>
 
-    <div class="mt-14 grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-6 items-stretch">
+    <div
+      class="mt-8 sm:mt-12 lg:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_2fr_1fr] gap-4 sm:gap-6 items-stretch"
+    >
       <!-- Left -->
       <img
         src={StrawberryLeft.src}
         alt="Cultivo hidropónico"
-        class="h-full w-full object-cover rounded-xl"
+        class="hidden sm:block h-full w-full min-h-70 lg:min-h-0 object-cover rounded-xl"
+        width="400"
+        height="500"
+        loading="lazy"
       />
 
       <!-- Featured -->
-      <article class="relative min-h-135 overflow-hidden">
+      <article
+        class="relative min-h-105 sm:min-h-115 lg:min-h-135 overflow-hidden rounded-xl sm:col-span-2 lg:col-span-1 order-first sm:order-0"
+      >
         <img
           src={StrawberryCenter.src}
           alt="Sistema hidropónico para fresas"
           class="absolute inset-0 h-full w-full object-cover rounded-xl"
+          width="700"
+          height="600"
+          loading="lazy"
         />
 
-        <div class="absolute bottom-6 left-6 right-6 bg-white p-8 shadow-sm rounded-lg">
-          <span class="text-xs uppercase tracking-widest text-neutral-500 font-medium">
+        <div
+          class="absolute bottom-3 sm:bottom-6 left-3 right-3 sm:left-6 sm:right-6 bg-white p-5 sm:p-6 lg:p-8 shadow-sm rounded-xl"
+        >
+          <span
+            class="text-[11px] sm:text-xs uppercase tracking-widest text-neutral-500 font-medium"
+          >
             Torreón, Coahuila
           </span>
 
-          <h3 class="mt-4 text-2xl">Sistema hidropónico para producción de fresas</h3>
+          <h3 class="mt-2 sm:mt-4 text-lg sm:text-xl lg:text-2xl leading-tight font-medium">
+            Sistema hidropónico para producción de fresas
+          </h3>
 
-          <p class="mt-1 text-neutral-600 leading-7">
+          <p class="mt-1.5 sm:mt-2 text-sm sm:text-[15px] text-neutral-600 leading-6 sm:leading-7">
             Diseñado para optimizar el uso del agua y los nutrientes, nuestro sistema permite
             obtener cultivos más uniformes.
           </p>
@@ -48,8 +67,31 @@ import StrawberryRight from "@/assets/strawberry-hands-down.webp";
       <img
         src={StrawberryRight.src}
         alt="Invernadero hidropónico"
-        class="h-full w-full object-cover rounded-xl"
+        class="hidden sm:block h-full w-full min-h-70 lg:min-h-0 object-cover rounded-xl"
+        width="400"
+        height="500"
+        loading="lazy"
       />
+
+      <!-- Mobile fallback single image row when sm hidden images not shown - show one extra image stacked? -->
+      <div class="sm:hidden grid grid-cols-2 gap-4">
+        <img
+          src={StrawberryLeft.src}
+          alt="Cultivo hidropónico"
+          class="w-full aspect-4/3 object-cover rounded-xl"
+          width="300"
+          height="225"
+          loading="lazy"
+        />
+        <img
+          src={StrawberryRight.src}
+          alt="Invernadero hidropónico"
+          class="w-full aspect-4/3 object-cover rounded-xl"
+          width="300"
+          height="225"
+          loading="lazy"
+        />
+      </div>
     </div>
   </Container>
 </section>

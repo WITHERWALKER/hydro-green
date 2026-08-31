@@ -4,19 +4,26 @@ import SectionLabel from "../ui/SectionLabel.astro";
 import { ArrowUpRight } from "@lucide/astro";
 ---
 
-<section id="cta" class="pt-32">
+<section id="cta" class="pt-16 sm:pt-20 lg:pt-28 xl:pt-32">
   <div
-    class="flex min-h-[80vh] items-center bg-cover bg-center p-6 md:p-10 lg:p-16"
+    class="flex min-h-[68vh] sm:min-h-[72vh] lg:min-h-[80vh] items-center sm:items-center bg-cover bg-center p-4 sm:p-6 md:p-10 lg:p-16"
     style={`background-image: url(${StrawberryVertical.src})`}
   >
-    <article class="max-w-2xl rounded-xl bg-white p-8 shadow-sm md:p-10 lg:p-12">
+    <article
+      class="w-full max-w-xl lg:max-w-2xl rounded-2xl lg:rounded-xl bg-white p-6 sm:p-8 md:p-10 lg:p-12 shadow-sm"
+    >
       <SectionLabel title="¿Listo para comenzar?" />
 
-      <h2 class="mt-6 text-4xl font-semibold">
+      <h2
+        class="mt-4 sm:mt-6 font-semibold tracking-tight text-balance leading-tight
+               text-[clamp(1.6rem,6vw,2rem)] sm:text-3xl lg:text-4xl"
+      >
         Transforma tu producción con hidroponía de precisión
       </h2>
 
-      <p class="mt-6 max-w-xl text-balance text-neutral-600">
+      <p
+        class="mt-4 sm:mt-6 max-w-xl text-pretty text-neutral-600 leading-relaxed text-[15px] sm:text-base"
+      >
         Te ayudamos a diseñar e implementar sistemas hidropónicos para el cultivo de fresas,
         optimizando recursos, mejorando la calidad del fruto y acompañándote en cada etapa del
         proyecto.
@@ -24,7 +31,7 @@ import { ArrowUpRight } from "@lucide/astro";
 
       <a
         href="/contacto"
-        class="mt-10 inline-flex items-center gap-2 rounded-xl bg-lime-500 px-6 py-3 font-medium text-neutral-900 transition-colors hover:bg-lime-600"
+        class="mt-8 sm:mt-10 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-lime-500 px-6 py-3.5 sm:py-3 font-medium text-neutral-900 transition-colors hover:bg-lime-600 active:bg-lime-700 text-sm sm:text-base"
       >
         Solicitar asesoría
         <ArrowUpRight class="size-5" />

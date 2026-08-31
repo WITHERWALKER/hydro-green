@@ -10,25 +10,27 @@ import { navigation } from "@/data/constants";
     class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden"
   >
     <span
-      class="pointer-events-none select-none whitespace-nowrap text-center font-bold leading-none tracking-tighter text-white/3 text-[18vw]"
+      class="pointer-events-none select-none whitespace-nowrap text-center font-bold leading-none tracking-tighter text-white/3 text-[22vw] sm:text-[18vw]"
     >
       HYDROGREEN
     </span>
   </div>
 
-  <Container class="relative py-24 lg:py-32">
+  <Container class="relative py-12 sm:py-16 lg:py-24 xl:py-32">
     <!-- Main -->
-    <div class="grid gap-20 lg:grid-cols-[1.8fr_1fr]">
+    <div class="grid gap-10 sm:gap-12 lg:gap-16 xl:gap-20 lg:grid-cols-[1.8fr_1fr]">
       <!-- Brand -->
       <div class="max-w-xl">
         <Logo variant="dark" />
 
-        <p class="mt-8 text-lg leading-8 text-neutral-400">
+        <p
+          class="mt-6 sm:mt-8 text-base sm:text-lg leading-7 sm:leading-8 text-neutral-400 text-pretty"
+        >
           Diseñamos sistemas hidropónicos especializados en el cultivo de fresas, combinando
           ingeniería, tecnología y sostenibilidad para impulsar una producción más eficiente.
         </p>
 
-        <div class="mt-10 flex flex-wrap gap-8 text-sm text-neutral-500">
+        <div class="mt-8 sm:mt-10 flex flex-wrap gap-6 sm:gap-8 text-sm text-neutral-500">
           <a href="#" class="transition-colors hover:text-white"> Instagram </a>
 
           <a href="#" class="transition-colors hover:text-white"> Facebook </a>
@@ -36,13 +38,15 @@ import { navigation } from "@/data/constants";
       </div>
 
       <!-- Navigation -->
-      <div class="grid grid-cols-2 gap-12">
+      <div class="grid grid-cols-2 gap-8 sm:gap-12">
         <div>
-          <h3 class="mb-6 text-sm font-medium uppercase tracking-widest text-neutral-500">
+          <h3
+            class="mb-4 sm:mb-6 text-xs sm:text-sm font-medium uppercase tracking-widest text-neutral-500"
+          >
             Navegación
           </h3>
 
-          <ul class="space-y-4">
+          <ul class="space-y-3 sm:space-y-4 text-sm sm:text-base">
             {
               navigation.footer.product.map((item) => (
                 <li>
@@ -56,13 +60,18 @@ import { navigation } from "@/data/constants";
         </div>
 
         <div>
-          <h3 class="mb-6 text-sm font-medium uppercase tracking-widest text-neutral-500">
+          <h3
+            class="mb-4 sm:mb-6 text-xs sm:text-sm font-medium uppercase tracking-widest text-neutral-500"
+          >
             Contacto
           </h3>
 
-          <ul class="space-y-4 text-neutral-400">
+          <ul class="space-y-3 sm:space-y-4 text-sm sm:text-base text-neutral-400 wrap-break-word">
             <li>
-              <a href="mailto:contacto@hydrogreen.com" class="transition-colors hover:text-white">
+              <a
+                href="mailto:contacto@hydrogreen.com"
+                class="transition-colors hover:text-white break-all sm:break-normal"
+              >
                 contacto@hydrogreen.com
               </a>
             </li>
@@ -81,7 +90,7 @@ import { navigation } from "@/data/constants";
 
     <!-- Bottom -->
     <div
-      class="mt-24 flex flex-col gap-6 border-t border-white/10 pt-8 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between"
+      class="mt-12 sm:mt-16 lg:mt-24 flex flex-col gap-4 sm:gap-6 border-t border-white/10 pt-6 sm:pt-8 text-xs sm:text-sm text-neutral-500 md:flex-row md:items-center md:justify-between"
     >
       <p>© 2026 HydroGreen. Todos los derechos reservados.</p>
 
