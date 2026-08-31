@@ -10,27 +10,31 @@ import { Mail, Phone, MapPin, Send } from "@lucide/astro";
   description="Contacta con HydroGreen. Solicita asesoría personalizada sobre sistemas hidropónicos inteligentes para cultivo de fresas."
 >
   <Header />
-  <main id="main-content" class="pt-32">
-    <section class="py-24 px-6">
+  <main id="main-content" class="pt-20 sm:pt-24 lg:pt-28">
+    <section class="py-10 sm:py-14 lg:py-16 xl:py-24 px-4 sm:px-6">
       <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-20">
+        <div class="text-center mb-10 sm:mb-14 lg:mb-20">
           <span
-            class="inline-flex items-center gap-2 px-4 py-1.5 bg-green-100/80 rounded-full mb-6"
+            class="inline-flex items-center gap-2 px-4 py-1.5 bg-green-100/80 rounded-full mb-5 sm:mb-6"
           >
             <span class="text-xs font-medium text-green-800 uppercase tracking-wider">Contacto</span
             >
           </span>
           <h1
-            class="font-display text-[clamp(2rem,0.5rem+4vw,3.5rem)] font-bold text-ink tracking-tight"
+            class="font-display text-[clamp(2rem,6vw,3.5rem)] font-bold text-ink tracking-tight leading-none"
           >
             Hablemos
           </h1>
-          <p class="mt-4 text-ink-light max-w-xl mx-auto">
+          <p
+            class="mt-3 sm:mt-4 text-ink-light max-w-xl mx-auto text-[15px] sm:text-base leading-relaxed px-2 sm:px-0"
+          >
             Completa el formulario y te responderemos en menos de 24 horas.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-32 items-start">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-5 gap-10 sm:gap-12 lg:gap-10 xl:gap-16 2xl:gap-32 items-start"
+        >
           <div class="lg:col-span-3">
             <form class="flex flex-col gap-6">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -112,17 +116,19 @@ import { Mail, Phone, MapPin, Send } from "@lucide/astro";
             </form>
           </div>
 
-          <div class="lg:col-span-2 flex flex-col gap-6 lg:pt-1">
+          <div
+            class="lg:col-span-2 flex flex-col gap-6 lg:pt-1 p-5 sm:p-6 lg:p-0 bg-white lg:bg-transparent border border-sand lg:border-0 rounded-2xl lg:rounded-none shadow-sm lg:shadow-none"
+          >
             <div class="flex items-start gap-4">
               <div
                 class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center shrink-0 text-green-700"
               >
                 <Mail class="w-5 h-5" />
               </div>
-              <div>
+              <div class="min-w-0">
                 <h3 class="text-sm font-semibold text-ink mb-1">Correo electrónico</h3>
-                <p class="text-sm text-ink-light">info@hydrogreen.com</p>
-                <p class="text-sm text-ink-light">soporte@hydrogreen.com</p>
+                <p class="text-sm text-ink-light break-all">info@hydrogreen.com</p>
+                <p class="text-sm text-ink-light break-all">soporte@hydrogreen.com</p>
               </div>
             </div>
 
@@ -152,8 +158,8 @@ import { Mail, Phone, MapPin, Send } from "@lucide/astro";
               </div>
             </div>
 
-            <div class="mt-2 p-5 bg-green-50 border border-green-200 rounded-2xl">
-              <p class="text-xs text-ink-light leading-relaxed">
+            <div class="mt-2 p-4 sm:p-5 bg-green-50 border border-green-200 rounded-2xl">
+              <p class="text-xs sm:text-sm text-ink-light leading-relaxed">
                 ¿Ya eres cliente? Visita nuestro <a
                   href="#"
                   class="text-green-700 font-medium hover:underline">centro de soporte</a
