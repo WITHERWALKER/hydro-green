@@ -1,38 +1,37 @@
 ---
 import Header from "@/components/DashboardComponents/Header.astro";
-import Navbar from "@/components/DashboardComponents/Navbar.astro";
 
 import "@fontsource-variable/inter";
-import "@fontsource-variable/fraunces";
+import "@fontsource/instrument-serif";
 import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Dashboard | HydroGreen",
+  description = "HydroGreen - Dashboard de monitoreo hidropónico en tiempo real",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="HydroGreen - Dashboard de monitoreo hidropónico en tiempo real"
-    />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#255c2a" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Dashboard | HydroGreen</title>
+    <title>{title}</title>
   </head>
-  <body class="bg-cream text-ink antialiased">
-    <div class="h-screen flex flex-col">
-      <header>
-        <Header />
-      </header>
-      <div class="flex flex-1 overflow-hidden">
-        <nav>
-          <Navbar />
-        </nav>
-        <main class="flex-1 overflow-auto">
-          <slot />
-        </main>
-      </div>
+  <body class="min-h-screen overflow-x-hidden bg-[#F5F0E8] antialiased text-ink">
+    <div class="flex min-h-screen flex-col overflow-x-hidden">
+      <Header />
+      <main id="main-content" class="flex-1 overflow-x-hidden bg-[#F5F0E8]">
+        <slot />
+      </main>
     </div>
   </body>
 </html>
