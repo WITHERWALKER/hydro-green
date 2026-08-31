@@ -1,7 +1,9 @@
 ---
 import Container from "../ui/Container.astro";
 import SectionLabel from "../ui/SectionLabel.astro";
-import StrawberryVertical from "@/assets/strawberry.jpg";
+import StrawberryLeft from "@/assets/strawberry-up.webp";
+import StrawberryCenter from "@/assets/strawberry-planted.webp";
+import StrawberryRight from "@/assets/strawberry-hands-down.webp";
 ---
 
 <section id="features" class="py-32">
@@ -15,7 +17,7 @@ import StrawberryVertical from "@/assets/strawberry.jpg";
     <div class="mt-14 grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-6 items-stretch">
       <!-- Left -->
       <img
-        src={StrawberryVertical.src}
+        src={StrawberryLeft.src}
         alt="Cultivo hidropónico"
         class="h-full w-full object-cover rounded-xl"
       />
@@ -23,7 +25,7 @@ import StrawberryVertical from "@/assets/strawberry.jpg";
       <!-- Featured -->
       <article class="relative min-h-135 overflow-hidden">
         <img
-          src={StrawberryVertical.src}
+          src={StrawberryCenter.src}
           alt="Sistema hidropónico para fresas"
           class="absolute inset-0 h-full w-full object-cover rounded-xl"
         />
@@ -44,7 +46,7 @@ import StrawberryVertical from "@/assets/strawberry.jpg";
 
       <!-- Right -->
       <img
-        src={StrawberryVertical.src}
+        src={StrawberryRight.src}
         alt="Invernadero hidropónico"
         class="h-full w-full object-cover rounded-xl"
       />
