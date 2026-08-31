@@ -1,23 +1,245 @@
 ---
-import { ArrowUpRight } from "@lucide/astro";
+import { ArrowUpRight, Menu, X } from "@lucide/astro";
+
+interface Props {
+  variant?: "light" | "dark";
+}
+
+const { variant = "light" } = Astro.props;
+
+const isDark = variant === "dark";
 ---
 
-<header class="max-w-7xl mx-auto w-full flex justify-between items-center py-6 px-6 relative z-10">
-  <a href="/" class="text-2xl font-display italic text-cream">HYDROGREEN</a>
-
-  <div class="flex items-center gap-16">
-    <nav>
-      <ul class="flex gap-6 text-cream/80">
-        <li><a href="/">Home</a></li>
-        <li><a href="#about">Nosotros</a></li>
-        <li><a href="#solutions">Soluciones</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-      </ul>
-    </nav>
-
-    <a href="/contacto" class="flex gap-1 bg-white px-5 py-3 rounded-xl text-ink font-semibold">
-      Solicitar
-      <ArrowUpRight />
+<header
+  class:list={[
+    "w-full z-20",
+    isDark
+      ? "bg-transparent relative"
+      : "sticky top-0 bg-cream/80 backdrop-blur-md border-b border-sand/60 supports-backdrop-filter:bg-cream/70",
+  ]}
+>
+  <div
+    class="max-w-7xl mx-auto w-full flex items-center justify-between gap-4 px-4 sm:px-6 py-4 sm:py-5 lg:py-6"
+  >
+    <a
+      href="/"
+      class:list={[
+        "text-xl sm:text-2xl font-display italic tracking-tight shrink-0 transition-colors",
+        isDark ? "text-cream hover:text-white" : "text-ink hover:text-green-700",
+      ]}
+      aria-label="HydroGreen - Inicio"
+    >
+      HYDROGREEN
     </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden lg:flex items-center gap-8 xl:gap-12">
+      <nav aria-label="Navegación principal">
+        <ul
+          class:list={[
+            "flex items-center gap-6 xl:gap-8 text-sm font-medium",
+            isDark ? "text-cream/80" : "text-ink-light",
+          ]}
+        >
+          <li>
+            <a
+              href="/"
+              class:list={[
+                "transition-colors hover:underline underline-offset-4 decoration-1",
+                isDark ? "hover:text-cream" : "hover:text-ink",
+              ]}>Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/#about"
+              class:list={[
+                "transition-colors hover:underline underline-offset-4 decoration-1",
+                isDark ? "hover:text-cream" : "hover:text-ink",
+              ]}>Nosotros</a
+            >
+          </li>
+          <li>
+            <a
+              href="/#solutions"
+              class:list={[
+                "transition-colors hover:underline underline-offset-4 decoration-1",
+                isDark ? "hover:text-cream" : "hover:text-ink",
+              ]}>Soluciones</a
+            >
+          </li>
+          <li>
+            <a
+              href="/shop"
+              class:list={[
+                "transition-colors hover:underline underline-offset-4 decoration-1",
+                isDark ? "hover:text-cream" : "hover:text-ink",
+              ]}>Tienda</a
+            >
+          </li>
+          <li>
+            <a
+              href="/dashboard"
+              class:list={[
+                "transition-colors hover:underline underline-offset-4 decoration-1",
+                isDark ? "hover:text-cream" : "hover:text-ink",
+              ]}>Dashboard</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <a
+        href="/contacto"
+        class:list={[
+          "inline-flex items-center gap-1.5 px-5 py-2.5 xl:px-5 xl:py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.97]",
+          isDark
+            ? "bg-white text-ink hover:bg-cream-dark shadow-sm"
+            : "bg-green-700 text-cream hover:bg-green-800 hover:shadow-green-btn",
+        ]}
+      >
+        Solicitar
+        <ArrowUpRight class="size-4" />
+      </a>
+    </div>
+
+    <!-- Mobile toggle -->
+    <button
+      id="menu-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class:list={[
+        "lg:hidden inline-flex items-center justify-center size-10 rounded-xl border transition-all duration-200 shrink-0",
+        isDark
+          ? "border-white/20 bg-white/10 text-cream backdrop-blur hover:bg-white/20 hover:border-white/30"
+          : "border-sand bg-white text-ink hover:border-green-200 hover:bg-green-50",
+      ]}
+    >
+      <span class="menu-icon-open"><Menu class="size-5" /></span>
+      <span class="menu-icon-close hidden"><X class="size-5" /></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <div
+    id="mobile-menu"
+    class:list={[
+      "hidden lg:hidden absolute inset-x-0 top-full border-t shadow-xl max-h-[calc(100dvh-64px)] overflow-y-auto",
+      isDark
+        ? "bg-[#1a2210]/95 backdrop-blur-xl border-white/10"
+        : "bg-cream border-sand shadow-green-lg",
+    ]}
+  >
+    <nav class="px-4 sm:px-6 py-6 flex flex-col gap-1" aria-label="Navegación móvil">
+      <a
+        href="/"
+        class:list={[
+          "flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-medium transition-colors",
+          isDark
+            ? "text-cream/90 hover:bg-white/10 hover:text-cream"
+            : "text-ink hover:bg-white hover:text-green-700",
+        ]}
+      >
+        Home <ArrowUpRight class="size-4 opacity-60" />
+      </a>
+      <a
+        href="/#about"
+        class:list={[
+          "flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-medium transition-colors",
+          isDark
+            ? "text-cream/90 hover:bg-white/10 hover:text-cream"
+            : "text-ink hover:bg-white hover:text-green-700",
+        ]}
+      >
+        Nosotros <ArrowUpRight class="size-4 opacity-60" />
+      </a>
+      <a
+        href="/#solutions"
+        class:list={[
+          "flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-medium transition-colors",
+          isDark
+            ? "text-cream/90 hover:bg-white/10 hover:text-cream"
+            : "text-ink hover:bg-white hover:text-green-700",
+        ]}
+      >
+        Soluciones <ArrowUpRight class="size-4 opacity-60" />
+      </a>
+      <a
+        href="/shop"
+        class:list={[
+          "flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-medium transition-colors",
+          isDark
+            ? "text-cream/90 hover:bg-white/10 hover:text-cream"
+            : "text-ink hover:bg-white hover:text-green-700",
+        ]}
+      >
+        Tienda <ArrowUpRight class="size-4 opacity-60" />
+      </a>
+      <a
+        href="/dashboard"
+        class:list={[
+          "flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-medium transition-colors",
+          isDark
+            ? "text-cream/90 hover:bg-white/10 hover:text-cream"
+            : "text-ink hover:bg-white hover:text-green-700",
+        ]}
+      >
+        Dashboard <ArrowUpRight class="size-4 opacity-60" />
+      </a>
+      <div class:list={["pt-4 mt-2 border-t", isDark ? "border-white/10" : "border-sand/60"]}>
+        <a
+          href="/contacto"
+          class="flex items-center justify-center gap-2 w-full px-6 py-4 bg-green-700 text-cream rounded-xl text-base font-semibold hover:bg-green-800 active:scale-[0.98] transition-all"
+        >
+          Solicitar asesoría <ArrowUpRight class="size-4" />
+        </a>
+      </div>
+    </nav>
   </div>
 </header>
+
+<script>
+  const btn = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const openIcon = btn?.querySelector(".menu-icon-open");
+  const closeIcon = btn?.querySelector(".menu-icon-close");
+
+  function setExpanded(expanded: boolean) {
+    if (!btn || !menu) return;
+    btn.setAttribute("aria-expanded", String(expanded));
+    btn.setAttribute("aria-label", expanded ? "Cerrar menú" : "Abrir menú");
+    menu.classList.toggle("hidden", !expanded);
+    openIcon?.classList.toggle("hidden", expanded);
+    closeIcon?.classList.toggle("hidden", !expanded);
+    document.body.style.overflow = expanded ? "hidden" : "";
+  }
+
+  btn?.addEventListener("click", () => {
+    const isExpanded = btn.getAttribute("aria-expanded") === "true";
+    setExpanded(!isExpanded);
+  });
+
+  // Cerrar al navegar o click fuera o resize
+  menu?.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => setExpanded(false));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setExpanded(false);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 1024) setExpanded(false);
+  });
+
+  // Cerrar si click fuera
+  document.addEventListener("click", (e) => {
+    if (!btn || !menu) return;
+    const target = e.target as Node;
+    if (!btn.contains(target) && !menu.contains(target) && !menu.classList.contains("hidden")) {
+      setExpanded(false);
+    }
+  });
+</script>

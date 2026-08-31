@@ -5,31 +5,46 @@ import Header from "@/components/sections/Header.astro";
 ---
 
 <section
-  class="relative h-dvh flex flex-col justify-between overflow-hidden bg-black-950"
-  style={`background-image: url(${heroBackground.src}); background-size: cover; background-position: center; background-repeat: no-repeat`}
+  class="relative flex h-[90dvh] sm:h-dvh flex-col overflow-hidden bg-zinc-950"
+  style={`background-image: url(${heroBackground.src}); background-size: cover; background-position: center 35%; background-repeat: no-repeat`}
 >
-  <div class="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/50"></div>
+  <div
+    class="absolute inset-0 bg-linear-to-b from-black/60 via-black/25 to-black/60 sm:from-black/50 sm:via-black/20 sm:to-black/55"
+  >
+  </div>
+  <div class="absolute inset-0 bg-black/5 sm:bg-transparent"></div>
 
-  <div class="relative z-10">
-    <Header />
+  <!-- Contenido sobre la imagen -->
+  <div class="relative z-10 flex flex-1 flex-col min-h-0">
+    <Header variant="dark" />
 
-    <div class="px-6 pt-16 sm:pt-24">
+    <!-- Cuerpo del hero: título con respiro superior + descripción anclada abajo -->
+    <div
+      class="flex flex-1 flex-col justify-between gap-8 sm:gap-10 lg:gap-10 pt-10 sm:pt-14 lg:pt-12 xl:pt-14 pb-8 sm:pb-12 lg:pb-14 xl:pb-16"
+    >
+      <!-- Título -->
       <Container>
-        <h1 class="text-8xl font-display text-cream tracking-tight leading-20 max-w-2xl">
+        <h1
+          class="font-display text-cream tracking-[-0.035em] leading-[0.88] text-balance
+                 max-w-[11.5ch] sm:max-w-[13ch] lg:max-w-2xl
+                 text-[clamp(2.45rem,9.5vw,3.45rem)] sm:text-[3.4rem] md:text-[3.9rem] lg:text-[5rem] xl:text-[6.2rem]"
+        >
           La nueva forma de cultivar fresas con precisión.
         </h1>
       </Container>
-    </div>
-  </div>
 
-  <div class="relative z-10 px-6 pb-12 sm:pb-16">
-    <Container>
-      <div class="max-w-2xl ml-auto text-right">
-        <p class="text-lg sm:text-xl text-cream/90 leading-relaxed text-balance">
-          Diseñamos e implementamos sistemas hidropónicos que optimizan el uso de agua, mejoran la
-          calidad del fruto y aumentan la productividad de cada cultivo.
-        </p>
-      </div>
-    </Container>
+      <!-- Descripción -->
+      <Container>
+        <div class="max-w-[34ch] sm:max-w-xl lg:max-w-xl xl:max-w-2xl sm:ml-auto sm:text-right">
+          <p
+            class="text-cream/90 leading-relaxed text-pretty
+                   text-[15px] sm:text-[17px] lg:text-lg xl:text-xl sm:leading-7 lg:leading-8"
+          >
+            Diseñamos e implementamos sistemas hidropónicos que optimizan el uso de agua, mejoran la
+            calidad del fruto y aumentan la productividad de cada cultivo.
+          </p>
+        </div>
+      </Container>
+    </div>
   </div>
 </section>
