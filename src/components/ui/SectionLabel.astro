@@ -7,7 +7,11 @@ interface Props {
 const { title: text, class: className = "" } = Astro.props;
 ---
 
-<div class={`flex items-center gap-4 ${className}`}>
-  <span class="block w-8 h-px bg-neutral-800"></span>
-  <span class="font-display text-2xl font-bold text-neutral-800">{text}</span>
+<div class={`flex items-center gap-3 sm:gap-4 ${className}`}>
+  <span class="block w-6 sm:w-8 h-px bg-neutral-800 shrink-0"></span>
+  <span
+    class="font-display font-bold text-neutral-800 leading-none
+           text-lg sm:text-xl lg:text-2xl"
+    >{text}</span
+  >
 </div>
